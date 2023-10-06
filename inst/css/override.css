@@ -1,0 +1,85 @@
+
+* {
+  /* Override default margins*/
+  /*--pagedjs-margin-right: 0.2in;*/
+  --pagedjs-top: 0in;
+  --pagedjs-margin-left: 0.05in;
+  --pagedjs-margin-top: 0.3in;
+  --pagedjs-margin-bottom: 0.2in;
+}
+:root{
+  --color1: rgba(162,226,226,1);
+  --color2: rgba(72,115,203,1);
+}
+:root{
+  --sidebar-width: 12rem; /* side bar width */
+  --sidebar-background-color: var(--color1);
+  --decorator-border: 2px solid var(--color1); /* change color and thickness of timeline */
+
+}
+.aside{
+  top: 0;
+  padding-top: 0px;
+  margin-top: -43px;
+}
+
+.decorator::after{
+  background-color: var(--color2); /* change color timeline dots */
+  opacity: .7;
+
+}
+
+/* Define the font family here */
+body{
+  font-family: "Roboto", sans-serif;
+   font-weight: 350;
+}
+
+a{
+  color: var(--color2);
+}
+
+h2{
+    display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+}
+#header_img {
+    vertical-align: bottom;
+    max-width: 160px;
+}
+
+.affiliate{
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  align-content: left;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+/*Add page number to the bottom left of the left and right pages */
+@page :left {
+  @bottom-right {
+    content: counter(page);
+    padding-bottom: 40px;
+    padding-right: -40px;
+    color: white;
+    font-weight: 350;
+    text-shadow: 2px 4px 4px rgba(72,115,203,1);
+    -webkit-print-color-adjust:exact;
+    -webkit-filter:opacity(1);
+  }
+}
+@page :right {
+  @bottom-right {
+    content: counter(page);
+    padding-bottom: 40px;
+    padding-right: -40px;
+    color: white;
+    font-weight: 350;
+    text-shadow: 2px 4px 4px rgba(72,115,203,1);
+    -webkit-print-color-adjust:exact;
+    -webkit-filter:opacity(1);
+  }
+}

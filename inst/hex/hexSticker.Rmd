@@ -84,9 +84,10 @@ ggcube  <- ggplot2::ggplot(as.data.frame(obj)) +
     ggplot2::scale_linetype_manual(values = c('TRUE' = "FF", 'FALSE' = 'solid')) +
     # ggplot2::scale_size_manual(values = c('TRUE' = 0.2, 'FALSE' = 0.5)) +
     # ggplot2::scale_fill_viridis_c(option = "plasma") + 
-    ggplot2::scale_fill_gradientn(
-        colors = ggplot2::alpha(rev(RColorBrewer::brewer.pal(9, "PuBuGn")), 
-                                alpha = .5)) + 
+    # ggplot2::scale_fill_gradientn(
+    #     colors = ggplot2::alpha(rev(RColorBrewer::brewer.pal(9, "viridis")), 
+    #                             alpha = .5)) + 
+    ggplot2::scale_fill_viridis_c(alpha = .75, option = "mako") +
     ggplot2::theme_void() + 
     ggplot2::coord_equal()
 ggcube
@@ -99,13 +100,13 @@ s_size = 2
 stick <- hexSticker::sticker( 
   subplot = ggcube,
   #### Package name ####
-  package = pkg, p_size=20, p_y = 1.48, p_color = ggplot2::alpha("black",.5),
+  package = pkg, p_size=20, p_y = 1.45, p_color = ggplot2::alpha("black",.5),
   #### Subplot #####
   s_x=1, s_y=1,  s_height = s_size, s_width = s_size,
   #### Fill & border ####
   h_fill = "white", h_color = ggplot2::alpha("black",.25),
   #### Spotlight ####
-  spotlight = TRUE, l_alpha = .3, l_width = 10, l_x = .5, l_y = .75,
+  spotlight = TRUE, l_alpha = .01, l_width = 10, l_x = .5, l_y = .75,
   #### File output ####
   dpi = 300, filename = filename)
 print(stick)

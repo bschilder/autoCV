@@ -1,21 +1,25 @@
-Package: templateR
+Package: autoCV
 Type: Package
-Title: packageTitle
+Title: Automated Curriculum Vitae
 Version: 0.99.0
 Authors@R: c( 
-     person(given = "yourGivenName",
-           family = "yourFamilyName",
-           role = c("cre"),
-           email = "yourEmail@email.com",
-           comment = c(ORCID = "yourOrcidId"))
+       person(given = "Brian",
+           family = "Schilder",
+           role = c("cre","aut"),
+           email = "brian_schilder@alumni.brown.edu",
+           comment = c(ORCID = "0000-0001-5949-2191"))
     )
-Description: packageDescription.
-URL: https://github.com/neurogenomics/templateR
-BugReports: https://github.com/neurogenomics/templateR/issues
+Description: Automatically generate and style your CV from tables..
+URL: https://github.com/bschilder/autoCV
+BugReports: https://github.com/bschilder/autoCV/issues
 Encoding: UTF-8
 Depends: R (>= 4.2)
-biocViews:
 Imports:
+    data.table,
+    stringr,
+    htmltools,
+    fontawesome,
+    here
 Suggests:
     rworkflows,
     methods,
