@@ -53,11 +53,9 @@ logo <- get_logo(img = system.file("img","davinci.png",package = "autoCV"),
 
 # Aside 
 
-```{r, warning=FALSE, message=FALSE}
-# visnet <- build_network(show_plot = FALSE,
-#                         save_path = here::here("network","visnetwork.html"))
-# visNetwork::renderVisNetwork(visnet)
-# htmltools::includeHTML("https://bschilder.github.io/CV/network/visnetwork.html")
+```{r, eval=FALSE}
+visnet <- build_network(show_plot = FALSE,
+                        save_path = here::here("network","visnetwork.html"))
 ```
 
 ## Contact {#contact}
