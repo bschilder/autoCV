@@ -6,12 +6,26 @@ build_title <- function(name="Leonardo da Vinci",
                         extra = list(
                           "### My Affiliation",
                           "### My Current Job",
-                          "### My Degrees")
-){ 
+                          "### My Degrees"),
+                        logo_position=c("right","left","bottom")
+                        ){ 
   # devoptera::args2vars(build_title)
+  logo_position <- logo_position[1]
   cat(
     paste(
-      paste("##",name,logo,"{#title}"),
+      if(logo_position=="right"){
+        paste("##",name,logo,"{#title}")  
+      } else if (logo_position=="left"){
+        paste("##",logo,name,"{#title}")
+      } else if (logo_position=="bottom"){
+        paste(
+          paste("##",name,"{#title}"),
+          logo,
+          sep="\n"
+        )
+      } else {
+        paste("##",name,"{#title}")
+      },
       tagline,
       paste(extra,collapse = "\n"),
       sep = "\n\n"

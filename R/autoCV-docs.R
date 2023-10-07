@@ -141,6 +141,7 @@ NULL
 #' @param show_plot Show plot.
 #' @param export_type Type of export. One of "png" (default), "jpeg" or "pdf".
 #' @param percent Percent skill value.
+#' @param logo_position Position of the logo relative to the title.
 #' @returns Formatted data.
 #' 
 #' @name build_
