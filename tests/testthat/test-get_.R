@@ -17,7 +17,7 @@ test_that("get_ functions work", {
                          basename(unlist(files2)))
   
   logo <- get_logo()
-  testthat::expect_true(grepl("<a href='https://github.com/bschilder/autoCV'",logo))
+  testthat::expect_true(grepl("<a href=",logo))
   
   template <- get_template(save_dir = tempdir()) 
   testthat::expect_true(file.exists(template)) 

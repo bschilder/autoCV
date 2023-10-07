@@ -1,3 +1,6 @@
+*.udpipe
+inst/templates/*.html
+
 Icon?
 # R project files
 *.Rproj
