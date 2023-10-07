@@ -1,5 +1,3 @@
-autoCV
-================
 <img src='https://github.com/bschilder/autoCV/raw/master/inst/hex/hex.png' title='Hex sticker for autoCV' height='300'><br>
 [![License:
 GPL-3](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://cran.r-project.org/web/licenses/GPL-3)
