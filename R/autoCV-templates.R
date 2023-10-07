@@ -1,0 +1,161 @@
+#### n_ ####
+#' @title Count functions
+#' 
+#' @description
+#' Functions to compute counts from various aspects of your CV data.
+#' @family n_
+#' @param file Data file path.
+#' @param types Subset the `Type` column.
+#' @param roles Subset the `Role` column.
+#' @param languages Subset the `Language` column.
+#' @returns Formatted data.
+#' 
+#' @name n_
+#' @import data.table
+#' @import htmltools
+NULL
+
+#### parse_ ####
+#' @title Parse functions
+#' 
+#' @description
+#' Functions to parse rows from your CV data.
+#' @family parse_
+#' @inheritParams n_
+#' @inheritParams base::paste
+#' @param name Your name to put on the CV.
+#' @param r One row from a \link[data.table]{data.table}.
+#' @param concise Use the concise layout.
+#' @param title Title.
+#' @param icon Icon.
+#' @param check_icons Check icons.
+#' @param add_link Add link.
+#' @param add_index Add index.
+#' @param add_logos Add logos.
+#' @param add_totals Add totals.
+#' @param div HTML div class.
+#' @param img_width Image width. 
+#' @param icn_width Icon width. 
+#' @param prefix Prefix.
+#' @param dt Grants \link[data.table]{data.table}.
+#' @returns Formatted data.
+#' 
+#' @name parse_
+NULL
+
+
+
+#### img_ ####
+#' @title Image functions
+#' 
+#' @description
+#' Functions to create image elements.
+#' @family img_
+#' @inheritParams n_
+#' @inheritParams parse_
+#' @inheritParams base::paste
+#' @param name Image name.
+#' @param id HTML element id.
+#' @param width Image width.
+#' @param height Image height.
+#' @param as_html Wrap in HTML element.
+#' @param verbose Print messages.
+#' @param link URL to use.
+#' @param img Path or URL to image.
+#' @param alt HTML element alt description.
+#' @param class HTML element class.
+#' @param text_before HTML element text before image.
+#' @param text_after HTML element text after image.
+#' @param style HTML element style.
+#' @param default Default value when image file not found.
+#' @param dir Directory to look for image files in.
+#' @returns Formatted data.
+#' 
+#' @name img_
+NULL
+
+#### get_ ####
+#' @title Get functions
+#' 
+#' @description
+#' Functions to get resources and example data built into \pkg{autoCV}.
+#' @param dir_only Only return the directory.
+#' @param dir_manual Specify the directory to find the files in manually.
+#' @family get_
+#' @inheritParams n_
+#' @inheritParams img_
+#' @returns Resources.
+#' 
+#' @name get_
+NULL
+
+
+#### icon_ ####
+#' @title Icon functions
+#' 
+#' @description
+#' Functions to get icons for respective CV data categories.
+#' @family icon_
+#' @inheritParams n_
+#' @inheritParams img_
+#' @param items A subset of items to get from the \code{autoCV::icon_dict}.
+#' @param icon Icon name.
+#' @param dict Icon dictionary.
+#' @param as_fa Return as \link[fontawesome]{fa} icon id.
+#' @param as_icon Return as HTML icon object (made with \link[fontawesome]{fa}).
+#' @param as_toc Return as Table of Contents.
+#' @param icn_width Icon width.
+#' @returns Formatted data.
+#' 
+#' @name icon_
+NULL
+
+
+#### build_ ####
+#' @title Build functions
+#' 
+#' @description
+#' Functions to build complex elements from CV data.
+#' @family build_
+#' @inheritParams n_
+#' @inheritParams parse_
+#' @inheritParams icon_
+#' @inheritParams base::paste
+#' @inheritParams visNetwork::visIgraph
+#' @inheritParams visNetwork::visNodes
+#' @inheritParams visNetwork::visOptions
+#' @param logo Logo to use.
+#' @param tagline Tagline to use.
+#' @param tagline Tagline to use.
+#' @param extra Extra HTML/markdown elements to append.
+#' @param add_github Add link to \pkg{autoCV} GitHub repo.
+#' @param add_pagedown Add \pkg{pagedown} reference.
+#' @param add_date Add date CV last updated.
+#' @param plus Extra symbols (e.g. "+") to include at the end of
+#'  each respective element.
+#' @param files Files to input.
+#' @param min_count Minimum word count.
+#' @param min_nchar Minimum word length.
+#' @param center Center node ID.
+#' @param save_path Path to save to.
+#' @param show_plot Show plot.
+#' @param export_type Type of export. One of "png" (default), "jpeg" or "pdf".
+#' @param percent Percent skill value.
+#' @returns Formatted data.
+#' 
+#' @name build_
+NULL
+
+
+#### utils_ ####
+#' @title Utils functions
+#' 
+#' @description
+#' Internal utility functions.
+#' @family utils_ 
+#' @returns Null.
+#' 
+#' @name utils_ 
+NULL
+
+

@@ -1,216 +1,28 @@
 ---
-title: autoCV
-author: autoCV
-date: "`r Sys.Date()`"
-input:
-    ccss
-output:
-  pagedown::html_resume:
-    # set it to true for a self-contained HTML page but it'll take longer to render
-    css: 
-      # OVERIDE CERTAIN FUNCTIONS OF CSS
-      - /Library/Frameworks/R.framework/Versions/4.3-arm64/Resources/library/autoCV/css/override.css 
-      # DEFAULT FILE
-      - resume 
-# uncomment this line to produce HTML and PDF in RStudio:
-# knit: pagedown::chrome_print
+title: "autoCV"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{autoCV}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
-  results='asis', 
-  echo = FALSE
+  collapse = TRUE,
+  comment = "#>"
 )
-htmltools::tagList(fontawesome::fa_html_dependency())
+```
+
+```{r setup}
 library(autoCV)
-### Set your working directory (`wd`) to 
-wd <- autoCV::ex_data() ## <-- Change this path to where your data is
-knitr::opts_knit$set(root.dir = wd)
-
-### Set name ####
-name <- "Leonardo da Vinci"
 ```
 
-<!-- Only show sidebar on first page: https://github.com/rstudio/pagedown/issues/147 -->
-```{css, echo=FALSE} 
-.pagedjs_page:not(:first-of-type) {
-  --sidebar-width: 1rem;
-  /*--sidebar-background-color: #ffffff;*/
-  --main-width: calc(var(--content-width) - var(--sidebar-width));
-  --decorator-horizontal-margin: 0.2in;
-}
-```
+# Session info
 
-# Aside 
-
-```{r, warning=FALSE, message=FALSE}
-# visnet <- build_network(show_plot = FALSE,
-#                         save_path = here::here("network","visnetwork.html"))
-# visNetwork::renderVisNetwork(visnet)
-# htmltools::includeHTML("https://bschilder.github.io/CV/network/visnetwork.html")
-```
-
-## Contact {#contact}
-
+<details>
 ```{r}
-parse_profile(types = c("email","website","phone"))
+utils::sessionInfo()
 ```
+</details>
 
-## Summary {#summary}
-
-<h4>  
-```{r}
-build_summary()
-```
-</h4>
-
-## Table of Contents {#toc}
-
-```{r}
-build_toc()
-```
-
-<hr>
-
-```{r}
-build_footer()
-```
-
-# Main
-
-## Brian M. Schilder <a href="https://bschilder.github.io/CV/network/visnetwork.html" target="_blank"><img id='header_img' src='./network/visnetwork.png' width='10%' style='border-radius:5%'></a> {#title}
-
-Passionately pursuing multi-disciplinary research to improve human lives.
-
-### Imperial College London 
-### PhD Candidate
-### ScB, MPhil
-
-
-## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
-
-```{r}
-parse_education()
-```
-
-## Core Skills {data-icon=`r icon_dict("skills")` #skills}
-
-```{r}
-parse_skills()
-```
-
-
-## Publications {data-icon=`r icon_dict("publications")` #publications}
-
-```{r}
-parse_publications(types = "publication")
-```
-
-## Preprints {data-icon=`r icon_dict("preprints")` #preprints}
-
-```{r}
-parse_publications(types = "preprint")
-```
-
-## Acknowledgements {data-icon=`r icon_dict("acknowledgements")` #acknowledgements}
-
-```{r}
-parse_publications(types = "acknowledgement")
-```
-
-## Reviewerships {data-icon=`r icon_dict("reviewerships")` #reviewerships}
-
-```{r}
-parse_publications(types = "reviewership")
-```
-
-## Internal Talks {data-icon=`r icon_dict("posters")` #internal_talks}
-
-```{r}
-parse_talks(types = "internal")
-```
-
-## Invited Talks {data-icon=`r icon_dict("posters")` #invited_talks}
-
-```{r}
-parse_talks(types = "invited")
-```
-
-## Conference Talks {data-icon=`r icon_dict("posters")` #conference_talks}
-
-```{r}
-parse_talks(types = "conference")
-```
-
-
-## Conference Posters {data-icon=`r icon_dict("posters")` #posters}
-
-```{r}
-parse_publications(types = "poster")
-```
-
-## Research Experience {data-icon=`r icon_dict("experience")` #experience}
-
-```{r}
-parse_experience(types = "research")
-```
-
-## Teaching / Mentoring Experience {data-icon=`r icon_dict("teaching")` #teaching}
-
-```{r}
-parse_experience(types = "teaching")
-```
-
-## Software Packages {data-icon=`r icon_dict("packages")` #packages}
-
-```{r}
-parse_tools(types = "package")
-```
-
-## Databases / Web Apps {data-icon=`r icon_dict("databases")` #databases}
-
-```{r}
-parse_tools(types = c("database","web app"))
-```
-
-## Websites {data-icon=`r icon_dict("websites")` #websites}
-
-```{r}
-parse_tools(types = "website")
-```
-
-## Grants {data-icon=`r icon_dict("grants")` #grants}
-
-```{r}
-parse_grants(types = "grant", 
-             add_totals = TRUE)
-```
-
-## Awards {data-icon=`r icon_dict("awards")` #awards}
-
-```{r}
-parse_grants(types = "award")
-```
-
-## Affiliations {data-icon=`r icon_dict("affiliations")` #affiliations}
-
-```{r}
-parse_profile(types = "affiliation", 
-              sep = "\n\n",
-              collapse = "\n\n",
-              div=NULL,
-              img_width = "150px",
-              prefix="### ")
-```
-
-## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_visualisation")` #data_visualisation}
-
-```{r}
-parse_experience(types = "data visualisation")
-```
-
-## Extracurricular Experience {data-icon=`r icon_dict("extracurricular")` #extracurricular}
-
-```{r}
-parse_experience(types = "extracurricular")
-```
