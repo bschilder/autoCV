@@ -15,14 +15,14 @@ status](https://github.com/bschilder/autoCV/workflows/rworkflows/badge.svg)](htt
 Authors: <i>Brian Schilder</i>  
 </h4>
 <h4>  
-README updated: <i>Oct-06-2023</i>  
+README updated: <i>Oct-07-2023</i>  
 </h4>
 
 <!-- To modify Package/Title/Description/Authors fields, edit the DESCRIPTION file -->
 
 ## `autoCV`: Automated Curriculum Vitae
 
-### Automatically generate and style your CV from tables..
+### Automatically generate and style your CV from tables.
 
 ## Installation
 
@@ -93,7 +93,7 @@ utils::sessionInfo()
     ## [31] memoise_2.0.1       cli_3.6.1           magrittr_2.0.3     
     ## [34] rworkflows_0.99.14  digest_0.6.33       grid_4.3.1         
     ## [37] rstudioapi_0.15.0   lifecycle_1.0.3     vctrs_0.6.3        
-    ## [40] data.table_1.14.8   evaluate_0.21       glue_1.6.2         
+    ## [40] data.table_1.14.8   evaluate_0.22       glue_1.6.2         
     ## [43] fansi_1.0.4         colorspace_2.1-0    rmarkdown_2.25     
     ## [46] tools_4.3.1         pkgconfig_2.0.3     htmltools_0.5.6
 
