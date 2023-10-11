@@ -63,7 +63,7 @@ img_link <- function(link,
   if(!file.exists(img)) {
     return("")
   }
-  paste0(
+ txt <- paste0(
     "<a href=",shQuote(link),
     " target='_blank'",
     " class=",shQuote(class),">",
@@ -77,4 +77,10 @@ img_link <- function(link,
     text_after,
     "</a>"
   )
+ #### Fix windows HTML strings ####
+ if(.Platform$OS.type == "windows"){
+   # eg = gsub("'","\"",logo)
+   txt <-  gsub("\"","'",txt)
+ }
+ return(txt)
 }

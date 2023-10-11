@@ -131,5 +131,5 @@ get_logo <- function(width = "40px",
     alt = id,
     style = style,
     text_before = text_before,
-    text_after = text_after)
+    text_after = text_after) 
 }

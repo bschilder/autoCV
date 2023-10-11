@@ -88,7 +88,7 @@ pandoc command line and others. To only suppress printing of the last
   }}
 }
 \value{
-Null.
+Null
 
 Path to rendered CV.
 }
