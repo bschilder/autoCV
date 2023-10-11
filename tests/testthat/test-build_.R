@@ -1,7 +1,6 @@
 test_that("build_ functions work", {
   
-  files <- get_data(dir_only = FALSE)
-  # setwd(d)
+  wd <- get_data() 
   
   txt <- capture.output(
     build_footer()
@@ -11,12 +10,12 @@ test_that("build_ functions work", {
   txt <- build_skill_bars(percent = "50")
   testthat::expect_true(grepl("^<div class = 'skill-bar'",txt))
   
-  gg <- build_skills_plot(file = files$skills)
+  gg <- build_skills_plot(wd = wd)
   testthat::expect_s3_class(gg,"gg")
   
   # testthat::test_path("cv_data")
   txt <- capture.output(
-    build_summary(files = files)
+    build_summary(wd = wd)
   )
   testthat::expect_true(grepl('^<svg aria-hidden="true" role="img"',txt))
   

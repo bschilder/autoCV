@@ -6,13 +6,13 @@ test_that("get_ functions work", {
   
   d <- get_data() 
   testthat::expect_true(file.exists(d))
-  testthat::expect_equal(basename(d),"cv_data")
+  testthat::expect_equal(basename(d),"autoCV")
   
   files <- get_data(dir_only = FALSE) 
   testthat::expect_true(all(sapply(files,file.exists))) 
   
   files2 <- get_data(dir_only = FALSE, 
-                     dir_manual = here::here()) 
+                     dir_manual = file.path(tempdir(),"autoCV")) 
   testthat::expect_equal(basename(unlist(files)),
                          basename(unlist(files2)))
   

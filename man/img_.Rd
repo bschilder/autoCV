@@ -8,7 +8,7 @@
 \usage{
 img_get(
   name,
-  dir = here::here("img"),
+  dir = file.path("img"),
   width = NULL,
   height = NULL,
   as_html = TRUE,

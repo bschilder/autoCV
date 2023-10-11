@@ -1,9 +1,3 @@
-
-
-
-
-
-
 #' @describeIn parse_ parse_
 #' @export
 parse_location <- function(r,
@@ -81,7 +75,8 @@ parse_news <- function(r,
 
 #' @describeIn parse_ parse_
 #' @export
-parse_education <- function(file=here::here("cv_data","education.csv"),
+parse_education <- function(wd="./",
+                            file=file.path(wd,"cv_data","education.csv"),
                             concise=FALSE){
   # ### Beijing University of Chemical Technology
   #
@@ -92,15 +87,16 @@ parse_education <- function(file=here::here("cv_data","education.csv"),
   # 2010
   #
   # Thesis: Dyadic wavelet and its application in edge detection
-  
+  img_dir <- file.path(wd,"img")
   dt <- data.table::fread(file)
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
     paste(
       paste("### ",
-            if(r$Logo!="") img_get(name = r$Logo,
+            if(r$Logo!="") img_get(dir = img_dir,
+                                   name = r$Logo,
                                    height = "30px",
-                                   style="border-radius: 3px"),
+                                   style = "border-radius: 3px"),
             r$Institution
       ),
       paste0("**",r$Degree,"**: ",r$Program,"; ",r$Focus),
@@ -122,7 +118,7 @@ parse_education <- function(file=here::here("cv_data","education.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
-parse_publications <- function(file=here::here("cv_data","publications.csv"),
+parse_publications <- function(file=file.path("cv_data","publications.csv"),
                                name="Leonardo da Vinci",
                                types=NULL){
   # ### ESCRT-0 complex modulates Rbf mutant cell survival...
@@ -165,7 +161,7 @@ parse_publications <- function(file=here::here("cv_data","publications.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
-parse_talks <- function(file=here::here("cv_data","talks.csv"),
+parse_talks <- function(file=file.path("cv_data","talks.csv"),
                         types=NULL){
   # ### ESCRT-0 complex modulates Rbf mutant cell survival...
   #
@@ -201,7 +197,7 @@ parse_talks <- function(file=here::here("cv_data","talks.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
-parse_experience <- function(file=here::here("cv_data","experience.csv"),
+parse_experience <- function(file=file.path("cv_data","experience.csv"),
                              types=NULL,
                              concise=FALSE){
   # (Research)
@@ -294,7 +290,8 @@ parse_experience <- function(file=here::here("cv_data","experience.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
-parse_tools <- function(file=here::here("cv_data","tools.csv"),
+parse_tools <- function(wd="./",
+                        file=file.path(wd,"cv_data","tools.csv"),
                         types=NULL,
                         add_index=TRUE,
                         add_logos=TRUE){
@@ -313,6 +310,7 @@ parse_tools <- function(file=here::here("cv_data","tools.csv"),
   # :::
   
   Type <- NULL;
+  img_dir <- file.path(wd,"img")
   dt <- data.table::fread(file)
   if(!is.null(types)){
     dt <- dt[Type %in% types,]
@@ -322,7 +320,8 @@ parse_tools <- function(file=here::here("cv_data","tools.csv"),
     paste(
       paste("###",r$Name,
             if(isTRUE(add_logos)){
-              img_get(name = r$Language,
+              img_get(dir = img_dir,
+                      name = r$Language,
                       height="15px")
             }
       ),
@@ -353,7 +352,8 @@ parse_tools <- function(file=here::here("cv_data","tools.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
-parse_profile <- function(file=here::here("cv_data","profile.csv"),
+parse_profile <- function(wd = "./",
+                          file=file.path(wd,"cv_data","profile.csv"),
                           types=NULL,
                           concise=FALSE,
                           sep="\n\n",
@@ -370,14 +370,17 @@ parse_profile <- function(file=here::here("cv_data","profile.csv"),
   # - <i class="fa fa-globe"></i> [Lab Website](https://www.neurogenomics.co.uk/)
   # - <i class="fa fa-phone"></i> **US**: <a href="tel:+1 908-268-9859">+1 908-268-9859</a>
   #  - <i class="fa fa-phone"></i> **UK**: <a href="tel:+44 073-0653-7736">+44 073-0653-7736</a>
+  # devoptera::args2vars(parse_profile)
+  
   Type <- NULL;
+  img_dir <- file.path(wd,"img")
   dt <- data.table::fread(file)
   if(!is.null(types)){
     dt <- dt[Type %in% types,]
   }
-  txt <- lapply(seq_len(nrow(dt)), function(i){
+  txt <- lapply(seq(nrow(dt)), function(i){
     r <- dt[i,]
-    if(!grepl("^\\./",r$Icon)){
+    if(!grepl("\\.svg$|\\.png$|\\.pdf$|\\.jpg$|\\.jpeg$",r$Icon)){
       paste(
         fontawesome::fa(r$Icon,width=icn_width),
         if(r$Type=="phone"){
@@ -396,7 +399,7 @@ parse_profile <- function(file=here::here("cv_data","profile.csv"),
       paste0(
         prefix,
         img_link(link = r$Link,
-                 img = r$Icon,
+                 img = file.path(img_dir,r$Icon),
                  alt = r$Text,
                  width = img_width,
                  class = "affiliate"),
@@ -429,6 +432,25 @@ parse_profile <- function(file=here::here("cv_data","profile.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
+parse_affiliations <- function(wd = "./",
+                               types = "affiliation", 
+                               sep = "\n\n",
+                               collapse = "\n\n",
+                               div = NULL,
+                               img_width = "150px",
+                               prefix = "### "){
+  # devoptera::args2vars(parse_affiliations)
+  parse_profile(wd = wd,
+                types = types, 
+                sep = sep,
+                collapse = collapse,
+                div = div,
+                img_width = img_width,
+                prefix = prefix)
+}
+
+#' @describeIn parse_ parse_
+#' @export
 parse_grants_totals <- function(dt){
   unit <- Amount <- Amount2 <- NULL;
   gbp <- "\U00A3"
@@ -445,7 +467,7 @@ parse_grants_totals <- function(dt){
 
 #' @describeIn parse_ parse_
 #' @export
-parse_grants <- function(file=here::here("cv_data","grants.csv"),
+parse_grants <- function(file=file.path("cv_data","grants.csv"),
                          types=NULL,
                          add_totals=FALSE){
   # ### ###Imperial UK Research Institute Impact Acceleration Account
@@ -528,7 +550,7 @@ parse_grants <- function(file=here::here("cv_data","grants.csv"),
 
 #' @describeIn parse_ parse_
 #' @export
-parse_skills <- function(file=here::here("cv_data","skills.csv"),
+parse_skills <- function(file=file.path("cv_data","skills.csv"),
                          types=NULL){
   
   Title <- Type <- Level <- LevelMax <- Percent <- Group <- NULL;

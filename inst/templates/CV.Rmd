@@ -35,27 +35,15 @@ library(autoCV)
 
 <!-- Custom Info -->
 ```{r}
- ####Set your working directory ####
-wd <- autoCV::get_data() ## <-- Change this path to where your data is
+wd <- "{wd}" ## <-- Change this path to where your "cv_data" and "img" subfolders are stored
 knitr::opts_knit$set(root.dir = wd)
-
- ####Set title elements ####
-name <- "Leonardo da Vinci"
-tagline <- "Simplicity is the ultimate sophistication."
-extra <- list("### Studio of Andrea del Verrocchio",
-              "### Painter, draughtsman, engineer, scientist",
-              "### MD, PhD"
-              ) 
-logo <- get_logo(img = system.file("img","davinci.png",package = "autoCV"),
-                 width = "60px")
 ```
-
 
 # Aside 
 
 ```{r, eval=FALSE}
 visnet <- build_network(show_plot = FALSE,
-                        save_path = here::here("network","visnetwork.html"))
+                        save_path = file.path("network","visnetwork.html"))
 ```
 
 ## Contact {#contact}
@@ -68,7 +56,7 @@ parse_profile(types = c("email","website","phone"))
 
 <h4>  
 ```{r}
-build_summary()
+build_summary(wd = wd)
 ```
 </h4>
 
@@ -87,17 +75,17 @@ build_footer()
 # Main
 
 ```{r}
-build_title(name = name,
-            tagline = tagline,
-            extra = extra, 
-            logo = logo)
+build_title(name = "{name}",
+            tagline = "{tagline}",
+            extra = "{extra}", 
+            logo = "{logo}")
 ```
 
 
 ## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
 
 ```{r}
-parse_education()
+parse_education(wd = wd)
 ```
 
 ## Core Skills {data-icon=`r icon_dict("skills")` #skills}
@@ -171,19 +159,22 @@ parse_experience(types = "teaching")
 ## Software Packages {data-icon=`r icon_dict("packages")` #packages}
 
 ```{r}
-parse_tools(types = "package")
+parse_tools(wd = wd,
+            types = "package")
 ```
 
 ## Databases / Web Apps {data-icon=`r icon_dict("databases")` #databases}
 
 ```{r}
-parse_tools(types = c("database","web app"))
+parse_tools(wd = wd,
+            types = c("database","web app"))
 ```
 
 ## Websites {data-icon=`r icon_dict("websites")` #websites}
 
 ```{r}
-parse_tools(types = "website")
+parse_tools(wd = wd,
+            types = "website")
 ```
 
 ## Grants {data-icon=`r icon_dict("grants")` #grants}
@@ -202,12 +193,7 @@ parse_grants(types = "award")
 ## Affiliations {data-icon=`r icon_dict("affiliations")` #affiliations}
 
 ```{r}
-parse_profile(types = "affiliation", 
-              sep = "\n\n",
-              collapse = "\n\n",
-              div = NULL,
-              img_width = "150px",
-              prefix = "### ")
+parse_affiliations(wd = wd)
 ```
 
 ## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_visualisation")` #data_visualisation}

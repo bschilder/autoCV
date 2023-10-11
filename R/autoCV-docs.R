@@ -23,6 +23,8 @@ NULL
 #' @family parse_
 #' @inheritParams n_
 #' @inheritParams base::paste
+#' @param wd Working directory where the "cv_data" and "img" subfolders
+#'  are stored. 
 #' @param name Your name to put on the CV.
 #' @param r One row from a \link[data.table]{data.table}.
 #' @param concise Use the concise layout.
@@ -84,6 +86,7 @@ NULL
 #' @family get_
 #' @inheritParams n_
 #' @inheritParams img_
+#' @inheritParams build_
 #' @returns Resources.
 #' 
 #' @name get_

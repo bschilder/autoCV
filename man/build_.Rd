@@ -28,16 +28,17 @@ build_footer(
 )
 
 build_summary(
+  wd = "./",
+  files = get_data(dir_manual = wd, subdir = "cv_data"),
   items = c("n_years_experience_research", "n_publications", "n_preprints", "n_packages",
     "n_databases", "n_talks", "n_years_experience_teaching"),
   plus = list(n_years_experience_research = "+", n_publications = "", n_preprints = "",
     n_packages = "", n_databases = "", n_talks = "", n_years_experience_teaching = "+"),
-  collapse = "<br>",
-  files = get_data(dir_manual = here::here("cv_data"))
+  collapse = "<br>"
 )
 
 build_network(
-  files = list.files(path = here::here("cv_data"), pattern = ".csv$", full.names = TRUE),
+  files = list.files(path = file.path("cv_data"), pattern = ".csv$", full.names = TRUE),
   min_count = 2,
   min_nchar = 2,
   layout = "layout_as_star",
@@ -53,7 +54,11 @@ build_network(
 
 build_skill_bars(percent, title = "")
 
-build_skills_plot(file = here::here("cv_data", "skills.csv"), types = NULL)
+build_skills_plot(
+  wd = "./",
+  file = file.path(wd, "cv_data", "skills.csv"),
+  types = NULL
+)
 
 build_toc(items = NULL, div = "h4", collapse = "<br>")
 }
@@ -79,6 +84,11 @@ build_toc(items = NULL, div = "h4", collapse = "<br>")
 \item{sep}{a character string to separate the terms.  Not
     \code{\link[base]{NA_character_}}.}
 
+\item{wd}{Working directory where the "cv_data" and "img" subfolders
+are stored.}
+
+\item{files}{Named list containing paths to CV data files.}
+
 \item{items}{A subset of items to get from the \code{autoCV::icon_dict}.}
 
 \item{plus}{Extra symbols (e.g. "+") to include at the end of
@@ -86,8 +96,6 @@ each respective element.}
 
 \item{collapse}{an optional character string to separate the results.  Not
     \code{\link[base]{NA_character_}}.}
-
-\item{files}{Named list containing paths to CV data files.}
 
 \item{min_count}{Minimum word count.}
 

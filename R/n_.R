@@ -3,7 +3,7 @@
 
 #' @describeIn n_ n_
 #' @export
-n_years_experience <- function(file=here::here("cv_data","experience.csv"),
+n_years_experience <- function(file=file.path("cv_data","experience.csv"),
                                types="research"){
   
   Type <- NULL;
@@ -16,7 +16,7 @@ n_years_experience <- function(file=here::here("cv_data","experience.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_tools <- function(file=here::here("cv_data","tools.csv"),
+n_tools <- function(file=file.path("cv_data","tools.csv"),
                     types=NULL){
   Type <- NULL;
   dt <- data.table::fread(file)
@@ -28,7 +28,7 @@ n_tools <- function(file=here::here("cv_data","tools.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_packages <- function(file=here::here("cv_data","tools.csv"),
+n_packages <- function(file=file.path("cv_data","tools.csv"),
                        types=c("package","web app")){
   n_tools(file = file,
           types = types)
@@ -36,7 +36,7 @@ n_packages <- function(file=here::here("cv_data","tools.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_webapps <- function(file=here::here("cv_data","tools.csv"),
+n_webapps <- function(file=file.path("cv_data","tools.csv"),
                       types="web app"){
   n_tools(file = file,
           types = types)
@@ -44,7 +44,7 @@ n_webapps <- function(file=here::here("cv_data","tools.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_websites <- function(file=here::here("cv_data","tools.csv"),
+n_websites <- function(file=file.path("cv_data","tools.csv"),
                        types="website"){
   n_tools(file = file,
           types = types)
@@ -58,7 +58,7 @@ n_web <- function(){
 
 #' @describeIn n_ n_
 #' @export
-n_databases <- function(file=here::here("cv_data","tools.csv"),
+n_databases <- function(file=file.path("cv_data","tools.csv"),
                         types="database"){
   n_tools(file = file,
           types = types)
@@ -66,7 +66,7 @@ n_databases <- function(file=here::here("cv_data","tools.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_rpackages <- function(file=here::here("cv_data","tools.csv"),
+n_rpackages <- function(file=file.path("cv_data","tools.csv"),
                         types="package",
                         languages=c("^R$","^R,*")){
   Type <- Language <- NULL;
@@ -83,7 +83,7 @@ n_rpackages <- function(file=here::here("cv_data","tools.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_publications <- function(file=here::here("cv_data","publications.csv"),
+n_publications <- function(file=file.path("cv_data","publications.csv"),
                            types="publication"){
   Type <- NULL;
   dt <- data.table::fread(file)
@@ -95,7 +95,7 @@ n_publications <- function(file=here::here("cv_data","publications.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_posters <- function(file=here::here("cv_data","publications.csv"),
+n_posters <- function(file=file.path("cv_data","publications.csv"),
                       types="poster"){
   Type <- NULL;
   dt <- data.table::fread(file)
@@ -107,7 +107,7 @@ n_posters <- function(file=here::here("cv_data","publications.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_talks <- function(file=here::here("cv_data","talks.csv"),
+n_talks <- function(file=file.path("cv_data","talks.csv"),
                     types=NULL){
   Type <- NULL;
   dt <- data.table::fread(file)
@@ -119,7 +119,7 @@ n_talks <- function(file=here::here("cv_data","talks.csv"),
 
 #' @describeIn n_ n_
 #' @export
-n_grants <- function(file=here::here("cv_data","grants.csv"),
+n_grants <- function(file=file.path("cv_data","grants.csv"),
                      types="grant",
                      roles=c("Primary applicant","Co-applicant")){
   Type <- Role <- NULL;

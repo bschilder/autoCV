@@ -17,42 +17,42 @@
 \title{Count functions}
 \usage{
 n_years_experience(
-  file = here::here("cv_data", "experience.csv"),
+  file = file.path("cv_data", "experience.csv"),
   types = "research"
 )
 
-n_tools(file = here::here("cv_data", "tools.csv"), types = NULL)
+n_tools(file = file.path("cv_data", "tools.csv"), types = NULL)
 
 n_packages(
-  file = here::here("cv_data", "tools.csv"),
+  file = file.path("cv_data", "tools.csv"),
   types = c("package", "web app")
 )
 
-n_webapps(file = here::here("cv_data", "tools.csv"), types = "web app")
+n_webapps(file = file.path("cv_data", "tools.csv"), types = "web app")
 
-n_websites(file = here::here("cv_data", "tools.csv"), types = "website")
+n_websites(file = file.path("cv_data", "tools.csv"), types = "website")
 
 n_web()
 
-n_databases(file = here::here("cv_data", "tools.csv"), types = "database")
+n_databases(file = file.path("cv_data", "tools.csv"), types = "database")
 
 n_rpackages(
-  file = here::here("cv_data", "tools.csv"),
+  file = file.path("cv_data", "tools.csv"),
   types = "package",
   languages = c("^R$", "^R,*")
 )
 
 n_publications(
-  file = here::here("cv_data", "publications.csv"),
+  file = file.path("cv_data", "publications.csv"),
   types = "publication"
 )
 
-n_posters(file = here::here("cv_data", "publications.csv"), types = "poster")
+n_posters(file = file.path("cv_data", "publications.csv"), types = "poster")
 
-n_talks(file = here::here("cv_data", "talks.csv"), types = NULL)
+n_talks(file = file.path("cv_data", "talks.csv"), types = NULL)
 
 n_grants(
-  file = here::here("cv_data", "grants.csv"),
+  file = file.path("cv_data", "grants.csv"),
   types = "grant",
   roles = c("Primary applicant", "Co-applicant")
 )

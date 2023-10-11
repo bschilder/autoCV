@@ -12,6 +12,7 @@
 \alias{parse_experience}
 \alias{parse_tools}
 \alias{parse_profile}
+\alias{parse_affiliations}
 \alias{parse_grants_totals}
 \alias{parse_grants}
 \alias{parse_skills}
@@ -25,31 +26,37 @@ parse_bullets(r, concise = FALSE, check_icons = TRUE)
 
 parse_news(r, title = "News", icon = "newspaper")
 
-parse_education(file = here::here("cv_data", "education.csv"), concise = FALSE)
+parse_education(
+  wd = "./",
+  file = file.path(wd, "cv_data", "education.csv"),
+  concise = FALSE
+)
 
 parse_publications(
-  file = here::here("cv_data", "publications.csv"),
+  file = file.path("cv_data", "publications.csv"),
   name = "Leonardo da Vinci",
   types = NULL
 )
 
-parse_talks(file = here::here("cv_data", "talks.csv"), types = NULL)
+parse_talks(file = file.path("cv_data", "talks.csv"), types = NULL)
 
 parse_experience(
-  file = here::here("cv_data", "experience.csv"),
+  file = file.path("cv_data", "experience.csv"),
   types = NULL,
   concise = FALSE
 )
 
 parse_tools(
-  file = here::here("cv_data", "tools.csv"),
+  wd = "./",
+  file = file.path(wd, "cv_data", "tools.csv"),
   types = NULL,
   add_index = TRUE,
   add_logos = TRUE
 )
 
 parse_profile(
-  file = here::here("cv_data", "profile.csv"),
+  wd = "./",
+  file = file.path(wd, "cv_data", "profile.csv"),
   types = NULL,
   concise = FALSE,
   sep = "\\n\\n",
@@ -60,15 +67,25 @@ parse_profile(
   prefix = NULL
 )
 
+parse_affiliations(
+  wd = "./",
+  types = "affiliation",
+  sep = "\\n\\n",
+  collapse = "\\n\\n",
+  div = NULL,
+  img_width = "150px",
+  prefix = "### "
+)
+
 parse_grants_totals(dt)
 
 parse_grants(
-  file = here::here("cv_data", "grants.csv"),
+  file = file.path("cv_data", "grants.csv"),
   types = NULL,
   add_totals = FALSE
 )
 
-parse_skills(file = here::here("cv_data", "skills.csv"), types = NULL)
+parse_skills(file = file.path("cv_data", "skills.csv"), types = NULL)
 }
 \arguments{
 \item{r}{One row from a \link[data.table]{data.table}.}
@@ -82,6 +99,9 @@ parse_skills(file = here::here("cv_data", "skills.csv"), types = NULL)
 \item{title}{Title.}
 
 \item{icon}{Icon.}
+
+\item{wd}{Working directory where the "cv_data" and "img" subfolders
+are stored.}
 
 \item{file}{Data file path.}
 
@@ -138,6 +158,8 @@ Functions to parse rows from your CV data.
 \item \code{parse_tools()}: parse_
 
 \item \code{parse_profile()}: parse_
+
+\item \code{parse_affiliations()}: parse_
 
 \item \code{parse_grants_totals()}: parse_
 

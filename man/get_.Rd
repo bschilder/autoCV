@@ -4,13 +4,33 @@
 \alias{get_}
 \alias{get_template}
 \alias{get_data}
+\alias{get_data_list}
 \alias{get_css}
 \alias{get_logo}
 \title{Get functions}
 \usage{
-get_template(save_dir = here::here())
+get_template(
+  name = "Leonardo da Vinci",
+  tagline = "Simplicity is the ultimate sophistication.",
+  extra = list("### Studio of Andrea del Verrocchio",
+    "### Painter, draughtsman, engineer, scientist", "### MD, PhD"),
+  logo = get_logo(img = system.file("img", "davinci.png", package = "autoCV"), width =
+    "60px"),
+  wd = get_data(),
+  template = "CV.Rmd",
+  save_dir = file.path("./"),
+  force_new = FALSE
+)
 
-get_data(dir_only = TRUE, dir_manual = NULL)
+get_data(
+  dir_only = TRUE,
+  dir_manual = NULL,
+  save_dir = NULL,
+  subdir = c("cv_data", "img", "css"),
+  verbose = TRUE
+)
+
+get_data_list(wd, full.names = FALSE)
 
 get_css()
 
@@ -25,11 +45,36 @@ get_logo(
 )
 }
 \arguments{
-\item{save_dir}{Directory to save template file to.}
+\item{name}{Image name.}
+
+\item{tagline}{Tagline to use.}
+
+\item{extra}{Extra HTML/markdown elements to append.}
+
+\item{logo}{Logo to use.}
+
+\item{wd}{Directory where "cv_data" and "img" subdirectories are stored.}
+
+\item{template}{Template to use.}
+
+\item{save_dir}{If not NULL, copy example 
+data ("cv_data/"), 
+images ("img/"),
+and CSS ("css/") to this directory.}
+
+\item{force_new}{Overwrite existing template file.}
 
 \item{dir_only}{Only return the directory.}
 
 \item{dir_manual}{Specify the directory to find the files in manually.}
+
+\item{subdir}{Subdirectories to return (when \code{dir_only=FALSE}).}
+
+\item{verbose}{Print messages.}
+
+\item{full.names}{a logical value.  If \code{TRUE}, the directory
+    path is prepended to the file names to give a relative file path.
+    If \code{FALSE}, the file names (rather than paths) are returned.}
 
 \item{width}{Image width.}
 
@@ -57,9 +102,14 @@ Functions to get resources and example data built into \pkg{autoCV}.
 
 \item \code{get_data()}: get_
 
+\item \code{get_data_list()}: get_
+
 \item \code{get_css()}: get_
 
 \item \code{get_logo()}: get_
 
 }}
+\examples{
+wd <-get_data(save_dir = file.path(tempdir(),"example_data"))
+}
 \concept{get_}

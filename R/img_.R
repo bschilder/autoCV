@@ -1,8 +1,7 @@
-
 #' @describeIn img_ img_
 #' @export
 img_get <- function(name,
-                    dir=here::here("img"),
+                    dir=file.path("img"),
                     width=NULL,
                     height=NULL,
                     as_html=TRUE,
@@ -17,8 +16,7 @@ img_get <- function(name,
   img_dict <- c(img_dict,
                 stats::setNames(
                   files,
-                  stringr::str_split(basename(files),"\\.",
-                                     simplify = TRUE, n = 2)[,1])
+                  gsub("\\.*","",basename(files)))
   )
   #### Iterate over names ####
   name <- trimws(strsplit(name,",")[[1]])

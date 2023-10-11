@@ -68,7 +68,10 @@ build_footer <- function(add_github="https://github.com/bschilder/autoCV",
 #' @describeIn build_ build_
 #' @export
 #' @param files Named list containing paths to CV data files.
-build_summary <- function(items=c("n_years_experience_research",
+build_summary <- function(wd="./",
+                          files = get_data(dir_manual = wd,
+                                           subdir = "cv_data"),
+                          items=c("n_years_experience_research",
                                   "n_publications",
                                   "n_preprints",
                                   "n_packages",
@@ -82,13 +85,13 @@ build_summary <- function(items=c("n_years_experience_research",
                                       n_databases="",
                                       n_talks="",
                                       n_years_experience_teaching="+"),
-                          collapse = "<br>",
-                          files = get_data(dir_manual=here::here("cv_data"))
+                          collapse = "<br>"
                           ){
   # <i class='fa fa-suitcase'></i> [`r n_years_experience(types="research")`+ years of research experience.](#experience)
   # <i class='fa fa-file'></i> [`r n_publications()` peer-reviewed publications to date.](#publications)
   # <i class='fa fa-desktop'></i> [`r n_packages()` bioinformatics tools developed.](#software)
   # <i class='fa fa-chalkboard-teacher'></i> [`r n_years_experience(types = "teaching")`+ years of teaching/supervising experience.](#teaching)
+  # devoptera::args2vars(build_summary)
   
   res <- lapply(stats::setNames(items,items),
                 function(x){
@@ -177,7 +180,7 @@ build_summary <- function(items=c("n_years_experience_research",
 
 #' @describeIn build_ build_
 #' @export
-build_network <- function(files=list.files(path = here::here("cv_data"),
+build_network <- function(files=list.files(path = file.path("cv_data"),
                                            pattern = ".csv$",
                                            full.names = TRUE),
                           min_count = 2,
@@ -309,7 +312,8 @@ build_skill_bars <- function(percent,
 
 #' @describeIn build_ build_
 #' @export
-build_skills_plot <- function(file=here::here("cv_data","skills.csv"),
+build_skills_plot <- function(wd="./",
+                              file=file.path(wd,"cv_data","skills.csv"),
                               types=NULL){
   
   Title <- Type <- Level <- LevelMax <- Percent <- Group <- NULL;

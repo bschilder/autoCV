@@ -7,16 +7,87 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-```
-
-```{r setup}
+```{r setup, include=TRUE}
 library(autoCV)
 ```
+
+# Set up data
+
+## Get example data
+
+```{r Get example data}
+wd <- autoCV::get_data(save_dir = file.path(tempdir(),"example_data"))
+### List all files, grouped by subfolder
+autoCV::get_data_list(wd)
+```
+
+## Customise data
+
+Now you may edit each file as needed to customise your CV. 
+The subfolders are organised as follows:  
+
+- `cv_data/` contains the data files for each section of the CV.
+- `img/` contains any images you wish to include in the CV.
+- `css/` contains the CSS file for styling the CV.
+
+
+# Create CV
+
+## Set up template
+
+```{r Set up template}
+file <- autoCV::get_template(wd = wd,
+                             save_dir = tempdir(),
+                             tagline = "Simplicity is the ultimate sophistication.",
+                             extra = list("### Studio of Andrea del Verrocchio",
+                                           "### Painter, Draughtsman, Engineer, Scientist",
+                                           "### MD, PhD"),
+                             logo = get_logo(img = system.file("img","davinci.png",
+                                                               package = "autoCV"),
+                                              width = "60px"),
+                             force_new = TRUE
+                             )
+```
+
+You can then inspect and make any further edits to the Rmarkdown file
+by opening it with in RStudio with: `browseURL(file)`
+
+```{r, eval=FALSE}
+browseURL(file)
+```
+
+
+## Render as HTML
+
+To generate the CV, render the template file with `render_cv`.
+
+```{r Render template, eval=FALSE}
+file_html <- autoCV::render_cv(file = file) 
+```
+
+You can then open the rendered HTML file in RStudio with: `browseURL(file_html)`
+
+```{r, eval=FALSE}
+browseURL(file_html)
+```
+
+
+## Render as PDF
+
+To render the CV as a PDF instead, simply use the `as_pdf` argument.
+
+```{r, eval=FALSE}
+file_pdf <- autoCV::render_cv(file = file, 
+                              as_pdf = TRUE) 
+```
+
+
+# Rendered examples
+
+See here for an example of a rendered CV:  
+
+## [HTML format](https://bschilder.github.io/CV/CV.html)
+## [PDF format](https://bschilder.github.io/CV/CV.pdf)
 
 # Session info
 

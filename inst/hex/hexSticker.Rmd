@@ -15,8 +15,8 @@ for(p in c("hexSticker","dplyr","here")){
     if(!require(p,character.only = TRUE)) install.packages(p)     
 }
 #### Get package metadata deps ####
-pkg <- read.dcf(here::here("DESCRIPTION"), fields = "Package")[1]
-description <- read.dcf(here::here("DESCRIPTION"), fields = "Description")[1]
+pkg <- read.dcf(file.path("DESCRIPTION"), fields = "Package")[1]
+description <- read.dcf(file.path("DESCRIPTION"), fields = "Description")[1]
 ```
 
 # Create hex sticker
@@ -49,7 +49,7 @@ Three-Dimensional Object Transformations.
 Create file path to save hex sticker to.
 
 ```{r}
-filename <- here::here("inst","hex","hex.png")
+filename <- file.path("inst","hex","hex.png")
 dir.create(dirname(filename), showWarnings = FALSE, recursive = TRUE)
 ```
 

@@ -19,14 +19,13 @@ Imports:
     stringr,
     htmltools,
     fontawesome,
-    here
+    rmarkdown
 Suggests:
     rworkflows,
-    methods,
-    markdown,
-    rmarkdown,
-    remotes,
     knitr,
+    markdown,
+    methods,
+    remotes, 
     BiocStyle,
     testthat (>= 3.0.0),
     utils,
