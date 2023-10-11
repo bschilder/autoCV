@@ -15,7 +15,7 @@ get_template <- function(name = "Leonardo da Vinci",
                                           width = "60px"),
                          wd = get_data(),
                          template = "CV.Rmd",
-                         save_dir = file.path("./"),
+                         save_dir = "./",
                          force_new = FALSE){
   # devoptera::args2vars(get_template)
   

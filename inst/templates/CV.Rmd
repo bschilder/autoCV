@@ -34,47 +34,47 @@ library(autoCV)
 ```
 
 <!-- Custom Info -->
-```{r}
+```{r Custom Info}
 wd <- "{wd}" ## <-- Change this path to where your "cv_data" and "img" subfolders are stored
 knitr::opts_knit$set(root.dir = wd)
 ```
 
 # Aside 
 
-```{r, eval=FALSE}
+```{r build_network, eval=FALSE}
 visnet <- build_network(show_plot = FALSE,
                         save_path = file.path("network","visnetwork.html"))
 ```
 
 ## Contact {#contact}
 
-```{r}
+```{r parse_profile}
 parse_profile(types = c("email","website","phone"))
 ```
 
 ## Summary {#summary}
 
 <h4>  
-```{r}
+```{r build_summary}
 build_summary(wd = wd)
 ```
 </h4>
 
 ## Table of Contents {#toc}
 
-```{r}
+```{r build_toc}
 build_toc()
 ```
 
 <hr>
 
-```{r}
+```{r build_footer}
 build_footer()
 ```
 
 # Main
 
-```{r}
+```{r build_title}
 build_title(name = "{name}",
             tagline = "{tagline}",
             extra = "{extra}", 
@@ -84,126 +84,126 @@ build_title(name = "{name}",
 
 ## Education {data-icon=`r icon_dict("education")` data-concise="true" #education}
 
-```{r}
+```{r parse_education}
 parse_education(wd = wd)
 ```
 
 ## Core Skills {data-icon=`r icon_dict("skills")` #skills}
 
-```{r}
+```{r parse_skills}
 parse_skills()
 ```
 
 
 ## Publications {data-icon=`r icon_dict("publications")` #publications}
 
-```{r}
+```{r parse_publications-publication}
 parse_publications(types = "publication")
 ```
 
 ## Preprints {data-icon=`r icon_dict("preprints")` #preprints}
 
-```{r}
+```{r parse_publications-preprint}
 parse_publications(types = "preprint")
 ```
 
 ## Acknowledgements {data-icon=`r icon_dict("acknowledgements")` #acknowledgements}
 
-```{r}
+```{r parse_publications-acknowledgement}
 parse_publications(types = "acknowledgement")
 ```
 
 ## Reviewerships {data-icon=`r icon_dict("reviewerships")` #reviewerships}
 
-```{r}
+```{r parse_publications-reviewership}
 parse_publications(types = "reviewership")
 ```
 
 ## Internal Talks {data-icon=`r icon_dict("posters")` #internal_talks}
 
-```{r}
+```{r parse_talks-internal}
 parse_talks(types = "internal")
 ```
 
 ## Invited Talks {data-icon=`r icon_dict("posters")` #invited_talks}
 
-```{r}
+```{r parse_talks-invited}
 parse_talks(types = "invited")
 ```
 
 ## Conference Talks {data-icon=`r icon_dict("posters")` #conference_talks}
 
-```{r}
+```{r parse_talks-conference}
 parse_talks(types = "conference")
 ```
 
 
 ## Conference Posters {data-icon=`r icon_dict("posters")` #posters}
 
-```{r}
+```{r parse_publications-poster}
 parse_publications(types = "poster")
 ```
 
 ## Research Experience {data-icon=`r icon_dict("experience")` #experience}
 
-```{r}
+```{r parse_experience-research}
 parse_experience(types = "research")
 ```
 
 ## Teaching / Mentoring Experience {data-icon=`r icon_dict("teaching")` #teaching}
 
-```{r}
+```{r parse_experience-teaching}
 parse_experience(types = "teaching")
 ```
 
 ## Software Packages {data-icon=`r icon_dict("packages")` #packages}
 
-```{r}
+```{r parse_tools-package}
 parse_tools(wd = wd,
             types = "package")
 ```
 
 ## Databases / Web Apps {data-icon=`r icon_dict("databases")` #databases}
 
-```{r}
+```{r parse_tools-database}
 parse_tools(wd = wd,
             types = c("database","web app"))
 ```
 
 ## Websites {data-icon=`r icon_dict("websites")` #websites}
 
-```{r}
+```{r parse_tools-website}
 parse_tools(wd = wd,
             types = "website")
 ```
 
 ## Grants {data-icon=`r icon_dict("grants")` #grants}
 
-```{r}
+```{r parse_grants-grant}
 parse_grants(types = "grant", 
              add_totals = TRUE)
 ```
 
 ## Awards {data-icon=`r icon_dict("awards")` #awards}
 
-```{r}
+```{r parse_grants-award}
 parse_grants(types = "award")
 ```
 
 ## Affiliations {data-icon=`r icon_dict("affiliations")` #affiliations}
 
-```{r}
+```{r parse_affiliations}
 parse_affiliations(wd = wd)
 ```
 
 ## Data Visualisation / Artwork Portfolio {data-icon=`r icon_dict("data_visualisation")` #data_visualisation}
 
-```{r}
+```{r parse_experience-data_visualisation}}
 parse_experience(types = "data visualisation")
 ```
 
 ## Extracurricular Experience {data-icon=`r icon_dict("extracurricular")` #extracurricular}
 
-```{r}
+```{r parse_experience-extracurricular}
 parse_experience(types = "extracurricular")
 ```

@@ -18,7 +18,7 @@ get_template(
     "60px"),
   wd = get_data(),
   template = "CV.Rmd",
-  save_dir = file.path("./"),
+  save_dir = "./",
   force_new = FALSE
 )
 
