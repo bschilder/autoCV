@@ -172,6 +172,7 @@ NULL
 #' @family utils_ 
 #' @returns Null.
 #' 
+#' @import pagedown
 #' @name utils_ 
 NULL
 

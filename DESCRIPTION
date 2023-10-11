@@ -19,7 +19,8 @@ Imports:
     stringr,
     htmltools,
     fontawesome,
-    rmarkdown
+    rmarkdown,
+    pagedown
 Suggests:
     rworkflows,
     knitr,

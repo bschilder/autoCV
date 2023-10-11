@@ -36,16 +36,12 @@ library(`r pkg`)
 
 <hr>
 
-## Contact
- 
-### [Neurogenomics Lab](https://www.neurogenomics.co.uk/)
+## Acknowledgements
 
-UK Dementia Research Institute  
-Department of Brain Sciences  
-Faculty of Medicine  
-Imperial College London   
-[GitHub](https://github.com/neurogenomics)  
-[DockerHub](https://hub.docker.com/orgs/neurogenomicslab)  
+`r pkg` builds on the work of many others.  
+We are grateful to the developers of the following R packages for providing
+the building blocks for `r pkg`,
+especially [`pagedown`](https://github.com/rstudio/pagedown).
 
 <br>
 
