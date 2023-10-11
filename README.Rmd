@@ -38,10 +38,10 @@ library(`r pkg`)
 
 ## Acknowledgements
 
-`r pkg` builds on the work of many others.  
-We are grateful to the developers of the following R packages for providing
-the building blocks for `r pkg`,
-especially [`pagedown`](https://github.com/rstudio/pagedown).
+``r pkg`` builds on the work of many others, 
+especially:  
+- [`pagedown`](https://github.com/rstudio/pagedown)  
+- [`rmarkdown`](https://github.com/rstudio/rmarkdown)
 
 <br>
 

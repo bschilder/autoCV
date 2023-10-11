@@ -41,10 +41,9 @@ library(autoCV)
 
 ## Acknowledgements
 
-autoCV builds on the work of many others.  
-We are grateful to the developers of the following R packages for
-providing the building blocks for autoCV, especially
-[`pagedown`](https://github.com/rstudio/pagedown).
+`autoCV` builds on the work of many others, especially:  
+- [`pagedown`](https://github.com/rstudio/pagedown)  
+- [`rmarkdown`](https://github.com/rstudio/rmarkdown)
 
 <br>
 
