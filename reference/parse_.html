@@ -64,31 +64,37 @@
 <span></span>
 <span><span class="fu">parse_news</span><span class="op">(</span><span class="va">r</span>, title <span class="op">=</span> <span class="st">"News"</span>, icon <span class="op">=</span> <span class="st">"newspaper"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_education</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"education.csv"</span><span class="op">)</span>, concise <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu">parse_education</span><span class="op">(</span></span>
+<span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"education.csv"</span><span class="op">)</span>,</span>
+<span>  concise <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">parse_publications</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"publications.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"publications.csv"</span><span class="op">)</span>,</span>
 <span>  name <span class="op">=</span> <span class="st">"Leonardo da Vinci"</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_talks</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"talks.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">parse_talks</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"talks.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">parse_experience</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"experience.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"experience.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  concise <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">parse_tools</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>,</span>
+<span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  add_index <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  add_logos <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">parse_profile</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"profile.csv"</span><span class="op">)</span>,</span>
+<span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"profile.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  concise <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  sep <span class="op">=</span> <span class="st">"\n\n"</span>,</span>
@@ -99,15 +105,25 @@
 <span>  prefix <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span>
 <span></span>
+<span><span class="fu">parse_affiliations</span><span class="op">(</span></span>
+<span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>  types <span class="op">=</span> <span class="st">"affiliation"</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">"\n\n"</span>,</span>
+<span>  collapse <span class="op">=</span> <span class="st">"\n\n"</span>,</span>
+<span>  div <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  img_width <span class="op">=</span> <span class="st">"150px"</span>,</span>
+<span>  prefix <span class="op">=</span> <span class="st">"### "</span></span>
+<span><span class="op">)</span></span>
+<span></span>
 <span><span class="fu">parse_grants_totals</span><span class="op">(</span><span class="va">dt</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">parse_grants</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"grants.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"grants.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  add_totals <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">parse_skills</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"skills.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">parse_skills</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"skills.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -134,6 +150,11 @@
 
 <dt>icon</dt>
 <dd><p>Icon.</p></dd>
+
+
+<dt>wd</dt>
+<dd><p>Working directory where the "cv_data" and "img" subfolders
+are stored.</p></dd>
 
 
 <dt>file</dt>
@@ -209,6 +230,7 @@
 <li><p><code>parse_experience()</code>: parse_</p></li>
 <li><p><code>parse_tools()</code>: parse_</p></li>
 <li><p><code>parse_profile()</code>: parse_</p></li>
+<li><p><code>parse_affiliations()</code>: parse_</p></li>
 <li><p><code>parse_grants_totals()</code>: parse_</p></li>
 <li><p><code>parse_grants()</code>: parse_</p></li>
 <li><p><code>parse_skills()</code>: parse_</p></li>

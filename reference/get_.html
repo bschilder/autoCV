@@ -56,9 +56,28 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_template</span><span class="op">(</span>save_dir <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_template</span><span class="op">(</span></span>
+<span>  name <span class="op">=</span> <span class="st">"Leonardo da Vinci"</span>,</span>
+<span>  tagline <span class="op">=</span> <span class="st">"Simplicity is the ultimate sophistication."</span>,</span>
+<span>  extra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"### Studio of Andrea del Verrocchio"</span>,</span>
+<span>    <span class="st">"### Painter, draughtsman, engineer, scientist"</span>, <span class="st">"### MD, PhD"</span><span class="op">)</span>,</span>
+<span>  logo <span class="op">=</span> <span class="fu">get_logo</span><span class="op">(</span>img <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"img"</span>, <span class="st">"davinci.png"</span>, package <span class="op">=</span> <span class="st">"autoCV"</span><span class="op">)</span>, width <span class="op">=</span></span>
+<span>    <span class="st">"60px"</span><span class="op">)</span>,</span>
+<span>  wd <span class="op">=</span> <span class="fu">get_data</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  template <span class="op">=</span> <span class="st">"CV.Rmd"</span>,</span>
+<span>  save_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"./"</span><span class="op">)</span>,</span>
+<span>  force_new <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_data</span><span class="op">(</span>dir_only <span class="op">=</span> <span class="cn">TRUE</span>, dir_manual <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">get_data</span><span class="op">(</span></span>
+<span>  dir_only <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dir_manual <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  save_dir <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  subdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"img"</span>, <span class="st">"css"</span><span class="op">)</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">get_data_list</span><span class="op">(</span><span class="va">wd</span>, full.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">get_css</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -75,8 +94,39 @@
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>save_dir</dt>
-<dd><p>Directory to save template file to.</p></dd>
+    <dl><dt>name</dt>
+<dd><p>Image name.</p></dd>
+
+
+<dt>tagline</dt>
+<dd><p>Tagline to use.</p></dd>
+
+
+<dt>extra</dt>
+<dd><p>Extra HTML/markdown elements to append.</p></dd>
+
+
+<dt>logo</dt>
+<dd><p>Logo to use.</p></dd>
+
+
+<dt>wd</dt>
+<dd><p>Directory where "cv_data" and "img" subdirectories are stored.</p></dd>
+
+
+<dt>template</dt>
+<dd><p>Template to use.</p></dd>
+
+
+<dt>save_dir</dt>
+<dd><p>If not NULL, copy example 
+data ("cv_data/"), 
+images ("img/"),
+and CSS ("css/") to this directory.</p></dd>
+
+
+<dt>force_new</dt>
+<dd><p>Overwrite existing template file.</p></dd>
 
 
 <dt>dir_only</dt>
@@ -85,6 +135,20 @@
 
 <dt>dir_manual</dt>
 <dd><p>Specify the directory to find the files in manually.</p></dd>
+
+
+<dt>subdir</dt>
+<dd><p>Subdirectories to return (when <code>dir_only=FALSE</code>).</p></dd>
+
+
+<dt>verbose</dt>
+<dd><p>Print messages.</p></dd>
+
+
+<dt>full.names</dt>
+<dd><p>a logical value.  If <code>TRUE</code>, the directory
+    path is prepended to the file names to give a relative file path.
+    If <code>FALSE</code>, the file names (rather than paths) are returned.</p></dd>
 
 
 <dt>width</dt>
@@ -126,10 +190,17 @@
     
 <ul><li><p><code>get_template()</code>: get_</p></li>
 <li><p><code>get_data()</code>: get_</p></li>
+<li><p><code>get_data_list()</code>: get_</p></li>
 <li><p><code>get_css()</code>: get_</p></li>
 <li><p><code>get_logo()</code>: get_</p></li>
 </ul></div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">wd</span> <span class="op">&lt;-</span><span class="fu">get_data</span><span class="op">(</span>save_dir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"example_data"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Copying example data --&gt; /tmp/RtmpJ7RCRp/example_data</span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

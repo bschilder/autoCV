@@ -73,16 +73,17 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">build_summary</span><span class="op">(</span></span>
+<span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>  files <span class="op">=</span> <span class="fu"><a href="get_.html">get_data</a></span><span class="op">(</span>dir_manual <span class="op">=</span> <span class="va">wd</span>, subdir <span class="op">=</span> <span class="st">"cv_data"</span><span class="op">)</span>,</span>
 <span>  items <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"n_years_experience_research"</span>, <span class="st">"n_publications"</span>, <span class="st">"n_preprints"</span>, <span class="st">"n_packages"</span>,</span>
 <span>    <span class="st">"n_databases"</span>, <span class="st">"n_talks"</span>, <span class="st">"n_years_experience_teaching"</span><span class="op">)</span>,</span>
 <span>  plus <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>n_years_experience_research <span class="op">=</span> <span class="st">"+"</span>, n_publications <span class="op">=</span> <span class="st">""</span>, n_preprints <span class="op">=</span> <span class="st">""</span>,</span>
 <span>    n_packages <span class="op">=</span> <span class="st">""</span>, n_databases <span class="op">=</span> <span class="st">""</span>, n_talks <span class="op">=</span> <span class="st">""</span>, n_years_experience_teaching <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>,</span>
-<span>  collapse <span class="op">=</span> <span class="st">"&lt;br&gt;"</span>,</span>
-<span>  files <span class="op">=</span> <span class="fu"><a href="get_.html">get_data</a></span><span class="op">(</span>dir_manual <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  collapse <span class="op">=</span> <span class="st">"&lt;br&gt;"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">build_network</span><span class="op">(</span></span>
-<span>  files <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span><span class="op">)</span>, pattern <span class="op">=</span> <span class="st">".csv$"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  files <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span><span class="op">)</span>, pattern <span class="op">=</span> <span class="st">".csv$"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>  min_count <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  min_nchar <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  layout <span class="op">=</span> <span class="st">"layout_as_star"</span>,</span>
@@ -98,7 +99,11 @@
 <span></span>
 <span><span class="fu">build_skill_bars</span><span class="op">(</span><span class="va">percent</span>, title <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">build_skills_plot</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"skills.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">build_skills_plot</span><span class="op">(</span></span>
+<span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"skills.csv"</span><span class="op">)</span>,</span>
+<span>  types <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">build_toc</span><span class="op">(</span>items <span class="op">=</span> <span class="cn">NULL</span>, div <span class="op">=</span> <span class="st">"h4"</span>, collapse <span class="op">=</span> <span class="st">"&lt;br&gt;"</span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -146,6 +151,15 @@
     <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">NA_character_</a></code>.</p></dd>
 
 
+<dt>wd</dt>
+<dd><p>Working directory where the "cv_data" and "img" subfolders
+are stored.</p></dd>
+
+
+<dt>files</dt>
+<dd><p>Named list containing paths to CV data files.</p></dd>
+
+
 <dt>items</dt>
 <dd><p>A subset of items to get from the <code><a href="icon_.html">autoCV::icon_dict</a></code>.</p></dd>
 
@@ -158,10 +172,6 @@ each respective element.</p></dd>
 <dt>collapse</dt>
 <dd><p>an optional character string to separate the results.  Not
     <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">NA_character_</a></code>.</p></dd>
-
-
-<dt>files</dt>
-<dd><p>Named list containing paths to CV data files.</p></dd>
 
 
 <dt>min_count</dt>

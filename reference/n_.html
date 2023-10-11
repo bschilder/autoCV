@@ -57,42 +57,42 @@
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">n_years_experience</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"experience.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"experience.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="st">"research"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">n_tools</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">n_tools</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">n_packages</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"package"</span>, <span class="st">"web app"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">n_webapps</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"web app"</span><span class="op">)</span></span>
+<span><span class="fu">n_webapps</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"web app"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">n_websites</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"website"</span><span class="op">)</span></span>
+<span><span class="fu">n_websites</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"website"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">n_web</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">n_databases</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"database"</span><span class="op">)</span></span>
+<span><span class="fu">n_databases</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"database"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">n_rpackages</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"tools.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="st">"package"</span>,</span>
 <span>  languages <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"^R$"</span>, <span class="st">"^R,*"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">n_publications</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"publications.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"publications.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="st">"publication"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">n_posters</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"publications.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"poster"</span><span class="op">)</span></span>
+<span><span class="fu">n_posters</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"publications.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="st">"poster"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">n_talks</span><span class="op">(</span>file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"talks.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span><span class="fu">n_talks</span><span class="op">(</span>file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"talks.csv"</span><span class="op">)</span>, types <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">n_grants</span><span class="op">(</span></span>
-<span>  file <span class="op">=</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"grants.csv"</span><span class="op">)</span>,</span>
+<span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"grants.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="st">"grant"</span>,</span>
 <span>  roles <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Primary applicant"</span>, <span class="st">"Co-applicant"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
