@@ -41,7 +41,8 @@ Suggests:
     tm,
     visNetwork
 Remotes:
-  github::cbail/textnets
+  github::cbail/textnets,
+  cran::pagedown
 RoxygenNote: 7.2.3
 VignetteBuilder: knitr
 License: GPL-3
