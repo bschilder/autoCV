@@ -47,7 +47,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Build functions</h1>
-    <small class="dont-index">Source: <a href="https://github.com/bschilder/autoCV/blob/HEAD/R/autoCV-docs.R" class="external-link"><code>R/autoCV-docs.R</code></a>, <a href="https://github.com/bschilder/autoCV/blob/HEAD/R/build_.R" class="external-link"><code>R/build_.R</code></a>, <a href="https://github.com/bschilder/autoCV/blob/HEAD/R/parse_.R" class="external-link"><code>R/parse_.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/bschilder/autoCV/blob/HEAD/R/autoCV-docs.R" class="external-link"><code>R/autoCV-docs.R</code></a>, <a href="https://github.com/bschilder/autoCV/blob/HEAD/R/build_.R" class="external-link"><code>R/build_.R</code></a></small>
     <div class="hidden name"><code>build_.Rd</code></div>
     </div>
 
@@ -63,6 +63,8 @@
 <span>  extra <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"### My Affiliation"</span>, <span class="st">"### My Current Job"</span>, <span class="st">"### My Degrees"</span><span class="op">)</span>,</span>
 <span>  logo_position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"right"</span>, <span class="st">"left"</span>, <span class="st">"bottom"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">build_toc</span><span class="op">(</span>items <span class="op">=</span> <span class="cn">NULL</span>, div <span class="op">=</span> <span class="st">"h4"</span>, collapse <span class="op">=</span> <span class="st">"&lt;br&gt;"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">build_footer</span><span class="op">(</span></span>
 <span>  add_github <span class="op">=</span> <span class="st">"https://github.com/bschilder/autoCV"</span>,</span>
@@ -103,9 +105,7 @@
 <span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
 <span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"skills.csv"</span><span class="op">)</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">build_toc</span><span class="op">(</span>items <span class="op">=</span> <span class="cn">NULL</span>, div <span class="op">=</span> <span class="st">"h4"</span>, collapse <span class="op">=</span> <span class="st">"&lt;br&gt;"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -128,6 +128,19 @@
 
 <dt>logo_position</dt>
 <dd><p>Position of the logo relative to the title.</p></dd>
+
+
+<dt>items</dt>
+<dd><p>A subset of items to get from the <code><a href="icon_.html">autoCV::icon_dict</a></code>.</p></dd>
+
+
+<dt>div</dt>
+<dd><p>HTML div class.</p></dd>
+
+
+<dt>collapse</dt>
+<dd><p>an optional character string to separate the results.  Not
+    <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">NA_character_</a></code>.</p></dd>
 
 
 <dt>add_github</dt>
@@ -160,18 +173,9 @@ are stored.</p></dd>
 <dd><p>Named list containing paths to CV data files.</p></dd>
 
 
-<dt>items</dt>
-<dd><p>A subset of items to get from the <code><a href="icon_.html">autoCV::icon_dict</a></code>.</p></dd>
-
-
 <dt>plus</dt>
 <dd><p>Extra symbols (e.g. "+") to include at the end of
 each respective element.</p></dd>
-
-
-<dt>collapse</dt>
-<dd><p>an optional character string to separate the results.  Not
-    <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">NA_character_</a></code>.</p></dd>
 
 
 <dt>min_count</dt>
@@ -233,10 +237,6 @@ each respective element.</p></dd>
 <dt>types</dt>
 <dd><p>Subset the `Type` column.</p></dd>
 
-
-<dt>div</dt>
-<dd><p>HTML div class.</p></dd>
-
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -248,12 +248,12 @@ each respective element.</p></dd>
     <h2>Functions</h2>
     
 <ul><li><p><code>build_title()</code>: build_</p></li>
+<li><p><code>build_toc()</code>: build_</p></li>
 <li><p><code>build_footer()</code>: build_</p></li>
 <li><p><code>build_summary()</code>: build_</p></li>
 <li><p><code>build_network()</code>: build_</p></li>
 <li><p><code>build_skill_bars()</code>: build_</p></li>
 <li><p><code>build_skills_plot()</code>: build_</p></li>
-<li><p><code>build_toc()</code>: build_</p></li>
 </ul></div>
 
   </div>
