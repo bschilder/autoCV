@@ -36,6 +36,21 @@ build_title <- function(name="Leonardo da Vinci",
 
 #' @describeIn build_ build_
 #' @export
+build_toc <- function(items=NULL,
+                      div="h4",
+                      collapse="<br>"){
+  dict <- icon_dict(items = items,
+                    as_icon = TRUE,
+                    as_toc = TRUE,
+                    collapse = collapse)
+  if(!is.null(div)){
+    dict <- paste0("<",div,">",dict,"</",div,">")
+  }
+  cat(dict)
+}
+
+#' @describeIn build_ build_
+#' @export
 build_footer <- function(add_github="https://github.com/bschilder/autoCV",
                          add_pagedown=FALSE,
                          add_date=TRUE,

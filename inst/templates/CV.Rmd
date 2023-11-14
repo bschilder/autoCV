@@ -98,25 +98,29 @@ parse_skills()
 ## Publications {data-icon=`r icon_dict("publications")` #publications}
 
 ```{r parse_publications-publication}
-parse_publications(types = "publication")
+parse_publications(types = "publication",
+                   name = "{name}")
 ```
 
 ## Preprints {data-icon=`r icon_dict("preprints")` #preprints}
 
 ```{r parse_publications-preprint}
-parse_publications(types = "preprint")
+parse_publications(types = "preprint",
+                   name = "{name}")
 ```
 
 ## Acknowledgements {data-icon=`r icon_dict("acknowledgements")` #acknowledgements}
 
 ```{r parse_publications-acknowledgement}
-parse_publications(types = "acknowledgement")
+parse_publications(types = "acknowledgement",
+                   name = "{name}")
 ```
 
 ## Reviewerships {data-icon=`r icon_dict("reviewerships")` #reviewerships}
 
 ```{r parse_publications-reviewership}
-parse_publications(types = "reviewership")
+parse_publications(types = "reviewership",
+                   name = "{name}")
 ```
 
 ## Internal Talks {data-icon=`r icon_dict("posters")` #internal_talks}

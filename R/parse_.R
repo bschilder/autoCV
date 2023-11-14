@@ -1,3 +1,47 @@
+#' Parse name
+#' 
+#' List various ways of writing a person's name.
+#' @param text Input text to search for all variations of \code{name} and 
+#' surround it with bold tags 
+#' (e.g. "Brian M Schilder" --> "**Brian M Schilder**").
+#' @describeIn parse_ parse_
+#' @export
+parse_name <- function(name,
+                       text=NULL){
+  splt <- strsplit(name," ")[[1]]
+  name_opts <- c(
+    name, 
+    paste(splt[1],
+          rev(splt)[1]),
+    paste(substr(splt[1],1,1),
+          rev(splt)[1]),
+    paste(paste0(substr(splt[1],1,1),"\\."), 
+          rev(splt)[1]),
+    paste(substr(splt[1],1,1),
+          substr(splt[2],1,1), 
+          rev(splt)[1]),
+    paste(paste0(substr(splt[1],1,1),"\\."),
+          paste0(substr(splt[2],1,1),"\\."), 
+          rev(splt)[1]),
+    paste(paste0(substr(splt[1],1,1),
+                 substr(splt[2],1,1)),
+          rev(splt)[1]),
+    paste(paste0(paste0(substr(splt[1],1,1),"\\."),
+                 paste0(substr(splt[2],1,1),"\\.")),
+          rev(splt)[1])
+  )
+  if(!is.null(text)){
+    for(nm in name_opts){
+      text <- gsub(nm,
+                   paste0("**",nm,"**"),
+                   text, ignore.case = TRUE)
+    }
+    return(text)
+  } else {
+    return(name_opts)
+  }
+}
+
 #' @describeIn parse_ parse_
 #' @export
 parse_location <- function(r,
@@ -130,6 +174,9 @@ parse_publications <- function(file=file.path("cv_data","publications.csv"),
   # 2016
   #
   # Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W.
+  if(!is.null(name)){
+    name_opts <- parse_name(name)
+  } 
   Type <- NULL;
   dt <- data.table::fread(file)
   if(!is.null(types)){
@@ -149,7 +196,7 @@ parse_publications <- function(file=file.path("cv_data","publications.csv"),
       "N/A",
       r$Year,
       paste(
-        gsub(name,paste0("**",name,"**"),r$Authors),
+        parse_name(name=name, text=r$Authors),
         if(not_empty(r$Comments)) parse_news(r$Comments),
         sep="<br>"
       ),
@@ -611,19 +658,4 @@ parse_skills <- function(file=file.path("cv_data","skills.csv"),
               paste0("[**",n_web(),"**](#databases)"),
               txt, fixed=TRUE)
   cat(paste(txt,collapse = "\n\n"))
-}
-
-#' @describeIn build_ build_
-#' @export
-build_toc <- function(items=NULL,
-                      div="h4",
-                      collapse="<br>"){
-  dict <- icon_dict(items = items,
-                    as_icon = TRUE,
-                    as_toc = TRUE,
-                    collapse = collapse)
-  if(!is.null(div)){
-    dict <- paste0("<",div,">",dict,"</",div,">")
-  }
-  cat(dict)
 }

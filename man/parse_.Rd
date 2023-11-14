@@ -2,6 +2,7 @@
 % Please edit documentation in R/autoCV-docs.R, R/parse_.R
 \name{parse_}
 \alias{parse_}
+\alias{parse_name}
 \alias{parse_location}
 \alias{parse_daterange}
 \alias{parse_bullets}
@@ -18,6 +19,8 @@
 \alias{parse_skills}
 \title{Parse functions}
 \usage{
+parse_name(name, text = NULL)
+
 parse_location(r, add_link = TRUE)
 
 parse_daterange(r)
@@ -88,6 +91,12 @@ parse_grants(
 parse_skills(file = file.path("cv_data", "skills.csv"), types = NULL)
 }
 \arguments{
+\item{name}{Your name to put on the CV.}
+
+\item{text}{Input text to search for all variations of \code{name} and 
+surround it with bold tags 
+(e.g. "Brian M Schilder" --> "**Brian M Schilder**").}
+
 \item{r}{One row from a \link[data.table]{data.table}.}
 
 \item{add_link}{Add link.}
@@ -104,8 +113,6 @@ parse_skills(file = file.path("cv_data", "skills.csv"), types = NULL)
 are stored.}
 
 \item{file}{Data file path.}
-
-\item{name}{Your name to put on the CV.}
 
 \item{types}{Subset the `Type` column.}
 
@@ -136,9 +143,13 @@ Formatted data.
 }
 \description{
 Functions to parse rows from your CV data.
+
+List various ways of writing a person's name.
 }
 \section{Functions}{
 \itemize{
+\item \code{parse_name()}: parse_
+
 \item \code{parse_location()}: parse_
 
 \item \code{parse_daterange()}: parse_
