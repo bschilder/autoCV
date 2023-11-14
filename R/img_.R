@@ -9,15 +9,16 @@ img_get <- function(name,
                     collapse=" ",
                     default="",
                     verbose=FALSE){
+  # devoptera::args2vars(img_get)
   
   #### Create img dict ####
   files <- list.files(dir, full.names = TRUE)
   img_dict <- stats::setNames(files,nm = basename(files))
   img_dict <- c(img_dict,
-                stats::setNames(
-                  files,
-                  gsub("\\.*","",basename(files)))
-  )
+                stats::setNames(files,
+                                replace_extensions(files)
+                                )
+                )
   #### Iterate over names ####
   name <- trimws(strsplit(name,",")[[1]])
   sapply(name, function(nm){

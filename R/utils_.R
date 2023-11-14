@@ -58,3 +58,21 @@ stopper <- function(..., v = TRUE) {
     stop()
   }
 }
+
+
+#' @title Replace extensions
+#' 
+#' @describeIn utils_ 
+#' Replace the extension name for a set of files.
+#' @param files Character vector of file paths.
+#' @inheritParams base::gsub
+#' @importFrom tools file_ext
+#' @keywords internal
+#' @returns Character vector
+replace_extensions <- function(files,
+                               replacement=""){
+  exts <- paste0(".",unique(tools::file_ext(basename(files))))
+  gsub(paste(exts,collapse = "|"),
+       replacement = replacement,
+       basename(files))
+}

@@ -342,6 +342,7 @@ parse_tools <- function(wd="./",
                         types=NULL,
                         add_index=TRUE,
                         add_logos=TRUE){
+  # devoptera::args2vars(parse_tools)
   # ### Data Scientist, intern
   #
   # SupStat Inc.

@@ -5,6 +5,7 @@
 \alias{not_empty}
 \alias{messager}
 \alias{stopper}
+\alias{replace_extensions}
 \title{Utils functions}
 \usage{
 not_empty(rc)
@@ -12,6 +13,8 @@ not_empty(rc)
 messager(..., v = TRUE, parallel = FALSE)
 
 stopper(..., v = TRUE)
+
+replace_extensions(files, replacement = "")
 }
 \arguments{
 \item{rc}{Row data.}
@@ -20,6 +23,20 @@ stopper(..., v = TRUE)
 
 \item{parallel}{Whether to enable message print when wrapped 
 in parallelised functions.}
+
+\item{files}{Character vector of file paths.}
+
+\item{replacement}{a replacement for matched pattern in \code{sub} and
+    \code{gsub}.  Coerced to character if possible.  For
+    \code{fixed = FALSE} this can include backreferences \code{"\1"} to
+    \code{"\9"} to parenthesized subexpressions of \code{pattern}.  For
+    \code{perl = TRUE} only, it can also contain \code{"\U"} or
+    \code{"\L"} to convert the rest of the replacement to upper or
+    lower case and \code{"\E"} to end case conversion.  If a
+    character vector of length 2 or more is supplied, the first element
+    is used with a warning.  If \code{NA}, all elements in the result
+    corresponding to matches will be set to \code{NA}.
+  }
 }
 \value{
 Null.
@@ -29,6 +46,8 @@ boolean
 Null
 
 Null
+
+Character vector
 }
 \description{
 Internal utility functions.
@@ -46,6 +65,8 @@ must first be stored to a variable before passing to \link[base]{message}.
 Allows developers to easily control verbosity of functions, 
  and meet Bioconductor requirements that dictate the stop message 
  must first be stored to a variable before passing to \link[base]{stop}.
+
+\item \code{replace_extensions()}: Replace the extension name for a set of files.
 
 }}
 \concept{utils_}

@@ -21,7 +21,8 @@ Imports:
     htmltools,
     fontawesome,
     rmarkdown,
-    pagedown
+    pagedown,
+    tools
 Suggests:
     rworkflows,
     knitr,
