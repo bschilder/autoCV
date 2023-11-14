@@ -60,7 +60,9 @@
 <span></span>
 <span><span class="fu">messager</span><span class="op">(</span><span class="va">...</span>, v <span class="op">=</span> <span class="cn">TRUE</span>, parallel <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">stopper</span><span class="op">(</span><span class="va">...</span>, v <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">stopper</span><span class="op">(</span><span class="va">...</span>, v <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">replace_extensions</span><span class="op">(</span><span class="va">files</span>, replacement <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -77,6 +79,23 @@
 <dd><p>Whether to enable message print when wrapped 
 in parallelised functions.</p></dd>
 
+
+<dt>files</dt>
+<dd><p>Character vector of file paths.</p></dd>
+
+
+<dt>replacement</dt>
+<dd><p>a replacement for matched pattern in <code>sub</code> and
+    <code>gsub</code>.  Coerced to character if possible.  For
+    <code>fixed = FALSE</code> this can include backreferences <code>"\1"</code> to
+    <code>"\9"</code> to parenthesized subexpressions of <code>pattern</code>.  For
+    <code>perl = TRUE</code> only, it can also contain <code>"\U"</code> or
+    <code>"\L"</code> to convert the rest of the replacement to upper or
+    lower case and <code>"\E"</code> to end case conversion.  If a
+    character vector of length 2 or more is supplied, the first element
+    is used with a warning.  If <code>NA</code>, all elements in the result
+    corresponding to matches will be set to <code>NA</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
@@ -92,6 +111,9 @@ in parallelised functions.</p></dd>
 
 
 <p>Null</p>
+
+
+<p>Character vector</p>
     </div>
     <div id="functions">
     <h2>Functions</h2>
@@ -105,6 +127,7 @@ must first be stored to a variable before passing to <a href="https://rdrr.io/r/
 Allows developers to easily control verbosity of functions, 
  and meet Bioconductor requirements that dictate the stop message 
  must first be stored to a variable before passing to <a href="https://rdrr.io/r/base/stop.html" class="external-link">stop</a>.</p></li>
+<li><p><code>replace_extensions()</code>: Replace the extension name for a set of files.</p></li>
 </ul></div>
 
   </div>
