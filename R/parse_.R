@@ -506,7 +506,7 @@ parse_grants_totals <- function(dt){
                    ifelse(grepl("\\$",Amount),"$",NA)
   )]
   suppressWarnings(
-    dt[,Amount2:=as.integer(gsub(paste0(gbp,"|\\$|,"),"",Amount))]
+    dt[,Amount2:=as.integer(gsub(paste0(gbp,"[$]|[,]"),"",Amount))]
   )
   #### Convert currency ####
   dt[,Amount2:=ifelse(unit=="$",Amount2,Amount2*1.24)]
