@@ -31,11 +31,12 @@ img_get <- function(name,
     #### Check file exists ####
     if(file.exists(f)){
       if(isTRUE(as_html)){
-        return(paste0("<img src=",shQuote(f),
+        return(paste("<img",
+                     paste0("src=",shQuote(f)),
                       if(!is.null(width))paste0("width=",shQuote(width)),
                       if(!is.null(height))paste0("height=",shQuote(height)),
                       if(!is.null(style))paste0("style=",shQuote(style)),
-                      " alt=",shQuote(nm),
+                      paste0("alt=",shQuote(nm)),
                       ">"))
       } else {
         return(f)
