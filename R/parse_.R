@@ -501,12 +501,12 @@ parse_affiliations <- function(wd = "./",
 #' @export
 parse_grants_totals <- function(dt){
   unit <- Amount <- Amount2 <- NULL;
-  gbp <- "\U00A3"
+  gbp <- enc2utf8("\u00A3")
   dt[,unit:=ifelse(grepl(gbp,Amount),gbp,
                    ifelse(grepl("\\$",Amount),"$",NA)
   )]
   suppressWarnings(
-    dt[,Amount2:=as.integer(gsub(paste0(gbp,"[$]|[,]"),"",Amount))]
+    dt[,Amount2:=as.integer(gsub(paste0(gbp,"|\\$|,"),"",Amount))]
   )
   #### Convert currency ####
   dt[,Amount2:=ifelse(unit=="$",Amount2,Amount2*1.24)]
