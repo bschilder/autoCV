@@ -623,9 +623,9 @@ parse_skills <- function(file=file.path("cv_data","skills.csv"),
       c("::: concise",
         lapply(seq_len(nrow(rg)), function(i){
           r <- rg[i,]
-          # build_skill_bars(dt = r)
+          # build_skill_bars(dt = r) 
           paste0("- **",r$Title,"**: ",r$Description)
-        }),
+        }) |> icon_sub(),
         ":::"
       )|> paste(collapse = "\n"),
       paste(rep("N/A",1),collapse = "\n\n"),
@@ -637,11 +637,17 @@ parse_skills <- function(file=file.path("cv_data","skills.csv"),
   txt <- gsub("{n_years_experience}",
               paste0("[**",n_years_experience(),"**](#experience)"),
               txt, fixed=TRUE)
+  txt <- gsub("{n_packages}",
+              paste0("[**",n_packages(),"**](#packages)"),
+              txt, fixed=TRUE)
   txt <- gsub("{n_rpackages}",
               paste0("[**",n_rpackages(),"**](#packages)"),
               txt, fixed=TRUE)
   txt <- gsub("{n_publications}",
               paste0("[**",n_publications(),"**](#publications)"),
+              txt, fixed=TRUE)
+  txt <- gsub("{n_preprints}",
+              paste0("[**",n_publications(types="preprint"),"**](#preprints)"),
               txt, fixed=TRUE)
   txt <- gsub("{n_posters}",
               paste0("[**",n_posters(),"**](#posters)"),
