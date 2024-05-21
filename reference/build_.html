@@ -104,7 +104,11 @@
 <span><span class="fu">build_skills_plot</span><span class="op">(</span></span>
 <span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
 <span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"skills.csv"</span><span class="op">)</span>,</span>
-<span>  types <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  types <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  polar <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  show_plot <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  save_path <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -207,7 +211,7 @@ each respective element.</p></dd>
 
 
 <dt>show_plot</dt>
-<dd><p>Show plot.</p></dd>
+<dd><p>logical. If TRUE, the plot will be shown.</p></dd>
 
 
 <dt>height</dt>
@@ -236,6 +240,14 @@ each respective element.</p></dd>
 
 <dt>types</dt>
 <dd><p>Subset the `Type` column.</p></dd>
+
+
+<dt>polar</dt>
+<dd><p>logical. If TRUE, the plot will be polar.</p></dd>
+
+
+<dt>...</dt>
+<dd><p>one or more <span style="R">R</span> objects, to be converted to character vectors.</p></dd>
 
 </dl></div>
     <div id="value">
