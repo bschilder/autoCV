@@ -326,26 +326,70 @@ build_skill_bars <- function(percent,
 }
 
 #' @describeIn build_ build_
+#' @param polar logical. If TRUE, the plot will be polar.
+#' @param show_plot logical. If TRUE, the plot will be shown.
+#' @inheritParams ggplot2::ggsave
 #' @export
 build_skills_plot <- function(wd="./",
                               file=file.path(wd,"cv_data","skills.csv"),
-                              types=NULL){
+                              types=NULL,
+                              polar=FALSE,
+                              show_plot=TRUE,
+                              save_path=NULL,
+                              ...){
   
   Title <- Type <- Level <- LevelMax <- Percent <- Group <- NULL;
-  dt <- data.table::fread(file)
-  dt <- dt[,Percent:=round(100*Level/LevelMax)]
-  if(!is.null(types)){
-    dt <- dt[Type %in% types,]
-  }
   
-  dt_plot <- data.table::copy(dt)[Title!="Summary",] |>
-    data.table::setorderv(cols = c("Group","Title"))
-  dt_plot$Title <- factor(dt_plot$Title,unique(dt_plot$Title), ordered = TRUE)
-  ggplot2::ggplot(dt_plot,
-                  ggplot2::aes(x=Title, y=Percent,
-                               fill=Group)) +
-    ggplot2::geom_bar(stat = "identity")  +
-    ggplot2::coord_polar() +
-    ggplot2::theme_bw() +
-    ggplot2::scale_fill_viridis_d(alpha = 0.8)
+  {
+    dt <- data.table::fread(file)
+    dt <- dt[,Percent:=round(100*Level/LevelMax)]
+    if(!is.null(types)){
+      dt <- dt[Type %in% types,]
+    } 
+    dt <- dt[Title!="Summary",]  
+    dt[,Group:=factor(Group,unique(Group),ordered = TRUE)]
+    data.table::setorderv(dt,"Percent")
+  }
+   #### Plot ####
+    p <- ggplot2::ggplot(dt,
+                    ggplot2::aes(x=Group, y=Percent,
+                                 fill=Percent,
+                                 label=stringr::str_wrap(Title,20))
+                    ) +
+        
+      ggplot2::geom_bar(stat = "identity", 
+                        color=ggplot2::alpha("black",.8),
+                        show.legend = FALSE)  + 
+      ggplot2::scale_y_reverse() +
+      ggplot2::geom_label(vjust=1,
+                          color="white", 
+                          position = "stack", 
+                          fill=ggplot2::alpha("black",.8))  +
+      ggplot2::scale_x_discrete(position = "top") +
+      ggplot2::scale_fill_viridis_c(option = "mako") +
+      ggplot2::theme_void() +
+      ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 0), 
+                     plot.background = ggplot2::element_rect(colour = "transparent",
+                                                             fill = "transparent"),
+                     panel.background = ggplot2::element_rect(colour = "transparent",
+                                                              fill = "transparent"), 
+                     plot.margin = ggplot2::margin(0,0,0,0, "cm")
+      )
+  if(polar){
+    p <- p + ggplot2::coord_polar()
+  }
+  if(show_plot) methods::show(p)
+  if(!is.null(save_path)){
+    dir.create(dirname(save_path), showWarnings = FALSE, recursive = TRUE)
+    ggplot2::ggsave(save_path, p, ...)
+  }
+  return(
+    list(data=dt,
+         plot=p)
+  )
 }
+
+
+
+
+

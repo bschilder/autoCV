@@ -11,15 +11,15 @@ icon_link(link, text_before = NULL, text_after = link, icon)
 
 icon_dict(
   items = NULL,
-  dict = list(education = "graduation-cap", skills = "check", publications = "file-text",
-    preprints = "file-edit", acknowledgements = "file", reviewerships = "file",
-    internal_talks = "person-chalkboard", invited_talks = "person-chalkboard",
-    conference_talks = "person-chalkboard", posters = "person-chalkboard", experience =
-    "suitcase", teaching = "chalkboard-teacher", packages = "wrench", websites =
-    "computer", databases = "database", grants = "dollar", awards = "award", affiliations
-    = "building-columns", 
-     data_visualisation = "circle-nodes", extracurricular =
-    "icons"),
+  dict = list(education = "graduation-cap", skills = "check", expertise = "check",
+    publications = "file-text", preprints = "file-edit", acknowledgements = "file",
+    reviewerships = "file", internal_talks = "person-chalkboard", invited_talks =
+    "person-chalkboard", conference_talks = "person-chalkboard", posters =
+    "person-chalkboard", experience = "suitcase", teaching = "chalkboard-teacher",
+    packages = "wrench", websites = "computer", databases = "database", grants =
+    "dollar", awards = "award", affiliations = "building-columns", 
+    
+    data_visualisation = "circle-nodes", extracurricular = "icons"),
   as_fa = FALSE,
   as_icon = FALSE,
   as_toc = FALSE,

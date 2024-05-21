@@ -10,8 +10,8 @@ test_that("build_ functions work", {
   txt <- build_skill_bars(percent = "50")
   testthat::expect_true(grepl("^<div class = 'skill-bar'",txt))
   
-  gg <- build_skills_plot(wd = wd)
-  testthat::expect_s3_class(gg,"gg")
+  bsp <- build_skills_plot(wd = wd)
+  testthat::expect_s3_class(bsp$plot,"gg")
   
   # testthat::test_path("cv_data")
   txt <- capture.output(

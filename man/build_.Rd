@@ -59,7 +59,11 @@ build_skill_bars(percent, title = "")
 build_skills_plot(
   wd = "./",
   file = file.path(wd, "cv_data", "skills.csv"),
-  types = NULL
+  types = NULL,
+  polar = FALSE,
+  show_plot = TRUE,
+  save_path = NULL,
+  ...
 )
 }
 \arguments{
@@ -113,7 +117,7 @@ each respective element.}
 
 \item{save_path}{Path to save to.}
 
-\item{show_plot}{Show plot.}
+\item{show_plot}{logical. If TRUE, the plot will be shown.}
 
 \item{height}{: String. Default to "100\%". The height of the network in pixels or as a percentage.}
 
@@ -128,6 +132,10 @@ each respective element.}
 \item{file}{Data file path.}
 
 \item{types}{Subset the `Type` column.}
+
+\item{polar}{logical. If TRUE, the plot will be polar.}
+
+\item{...}{one or more \R objects, to be converted to character vectors.}
 }
 \value{
 Formatted data.
