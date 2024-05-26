@@ -17,7 +17,7 @@ library(autoCV)
 
 ```{r Get example data}
 wd <- autoCV::get_data(save_dir = file.path(tempdir(),"example_data"))
-### List all files, grouped by subfolder
+### List all files, grouped by subfolder 
 autoCV::get_data_list(wd)
 ```
 
