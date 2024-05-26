@@ -328,11 +328,15 @@ build_skill_bars <- function(percent,
 #' @describeIn build_ build_
 #' @param polar logical. If TRUE, the plot will be polar.
 #' @param show_plot logical. If TRUE, the plot will be shown.
+#' @param label_alpha numeric. The alpha value for the labels.
+#' @param fill_alpha numeric. The alpha value for the fill.
 #' @inheritParams ggplot2::ggsave
 #' @export
 build_skills_plot <- function(wd="./",
                               file=file.path(wd,"cv_data","skills.csv"),
                               types=NULL,
+                              label_alpha=.8,
+                              fill_alpha=.8,
                               polar=FALSE,
                               show_plot=TRUE,
                               save_path=NULL,
@@ -358,7 +362,7 @@ build_skills_plot <- function(wd="./",
                     ) +
         
       ggplot2::geom_bar(stat = "identity", 
-                        color=ggplot2::alpha("black",.8),
+                        color=ggplot2::alpha("black",label_alpha),
                         show.legend = FALSE)  + 
       ggplot2::scale_y_reverse() +
       ggplot2::geom_label(vjust=1,
@@ -366,7 +370,7 @@ build_skills_plot <- function(wd="./",
                           position = "stack", 
                           fill=ggplot2::alpha("black",.8))  +
       ggplot2::scale_x_discrete(position = "top") +
-      ggplot2::scale_fill_viridis_c(option = "mako") +
+      ggplot2::scale_fill_viridis_c(option = "mako",alpha = fill_alpha) +
       ggplot2::theme_void() +
       ggplot2::theme(axis.text.x = ggplot2::element_text(angle = 0), 
                      plot.background = ggplot2::element_rect(colour = "transparent",

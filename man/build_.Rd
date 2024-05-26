@@ -60,6 +60,8 @@ build_skills_plot(
   wd = "./",
   file = file.path(wd, "cv_data", "skills.csv"),
   types = NULL,
+  label_alpha = 0.8,
+  fill_alpha = 0.8,
   polar = FALSE,
   show_plot = TRUE,
   save_path = NULL,
@@ -132,6 +134,10 @@ each respective element.}
 \item{file}{Data file path.}
 
 \item{types}{Subset the `Type` column.}
+
+\item{label_alpha}{numeric. The alpha value for the labels.}
+
+\item{fill_alpha}{numeric. The alpha value for the fill.}
 
 \item{polar}{logical. If TRUE, the plot will be polar.}
 
