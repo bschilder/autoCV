@@ -32,6 +32,7 @@ parse_news(r, title = "News", icon = "newspaper")
 parse_education(
   wd = "./",
   file = file.path(wd, "cv_data", "education.csv"),
+  include = c("logo", "supervisors", "thesis", "institution"),
   concise = FALSE
 )
 
@@ -113,6 +114,8 @@ surround it with bold tags
 are stored.}
 
 \item{file}{Data file path.}
+
+\item{include}{Include optional elements.}
 
 \item{types}{Subset the `Type` column.}
 

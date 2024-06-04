@@ -118,9 +118,11 @@ parse_news <- function(r,
 
 
 #' @describeIn parse_ parse_
+#' @param include Include optional elements.
 #' @export
 parse_education <- function(wd="./",
                             file=file.path(wd,"cv_data","education.csv"),
+                            include=c("logo","supervisors","thesis","institution"),
                             concise=FALSE){
   # ### Beijing University of Chemical Technology
   #
@@ -137,21 +139,25 @@ parse_education <- function(wd="./",
     r <- dt[i,]
     paste(
       paste("### ",
-            if(r$Logo!="") img_get(dir = img_dir,
+            if("logo" %in% include && 
+               r$Logo!="") img_get(dir = img_dir,
                                    name = r$Logo,
                                    height = "30px",
                                    style = "border-radius: 3px"),
-            r$Institution
+            if("institution" %in% include &&
+               r$Institution!="") r$Institution
       ),
       paste0("**",r$Degree,"**: ",r$Program,"; ",r$Focus),
       parse_location(r=r),
       r$EndYear,
       paste(
-        if(r$Supervisors!="") paste("**Supervisors**:",r$Supervisors),
+        if("supervisors" %in% include && 
+           r$Supervisors!="") paste("**Supervisors**:",r$Supervisors),
         # if(r$Group!="") r$Group,
         sep = "; "
       ),
-      if(r$Thesis!="") paste("**Thesis**:",r$Thesis),
+      if("thesis" %in% include && 
+         r$Thesis!="") paste("**Thesis**:",r$Thesis),
       parse_bullets(r = r,
                     concise = concise),
       sep = "\n\n"
