@@ -71,6 +71,7 @@ List various ways of writing a person's name."><!-- mathjax --><script src="http
 <span><span class="fu">parse_education</span><span class="op">(</span></span>
 <span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
 <span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"education.csv"</span><span class="op">)</span>,</span>
+<span>  include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"logo"</span>, <span class="st">"supervisors"</span>, <span class="st">"thesis"</span>, <span class="st">"institution"</span><span class="op">)</span>,</span>
 <span>  concise <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -173,6 +174,10 @@ are stored.</p></dd>
 
 <dt>file</dt>
 <dd><p>Data file path.</p></dd>
+
+
+<dt>include</dt>
+<dd><p>Include optional elements.</p></dd>
 
 
 <dt>types</dt>
