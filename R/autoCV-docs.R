@@ -40,6 +40,7 @@ NULL
 #' @param icn_width Icon width. 
 #' @param prefix Prefix.
 #' @param dt Grants \link[data.table]{data.table}.
+#' @param select Subset by "Select" column values.
 #' @returns Formatted data.
 #' 
 #' @name parse_

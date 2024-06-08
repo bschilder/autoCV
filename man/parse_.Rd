@@ -32,7 +32,7 @@ parse_news(r, title = "News", icon = "newspaper")
 parse_education(
   wd = "./",
   file = file.path(wd, "cv_data", "education.csv"),
-  include = c("logo", "supervisors", "thesis", "institution"),
+  include = c("logo", "institution", "degree", "program", "focus", "thesis", "bullets"),
   concise = FALSE
 )
 
@@ -46,6 +46,7 @@ parse_talks(file = file.path("cv_data", "talks.csv"), types = NULL)
 
 parse_experience(
   file = file.path("cv_data", "experience.csv"),
+  select = NULL,
   types = NULL,
   concise = FALSE
 )
@@ -118,6 +119,8 @@ are stored.}
 \item{include}{Include optional elements.}
 
 \item{types}{Subset the `Type` column.}
+
+\item{select}{Subset by "Select" column values.}
 
 \item{add_index}{Add index.}
 

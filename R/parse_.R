@@ -122,7 +122,14 @@ parse_news <- function(r,
 #' @export
 parse_education <- function(wd="./",
                             file=file.path(wd,"cv_data","education.csv"),
-                            include=c("logo","supervisors","thesis","institution"),
+                            include=c("logo",
+                                      "institution",
+                                      "degree",
+                                      "program",
+                                      "focus",
+                                      # "supervisors",
+                                      "thesis",
+                                      "bullets"),
                             concise=FALSE){
   # ### Beijing University of Chemical Technology
   #
@@ -147,7 +154,11 @@ parse_education <- function(wd="./",
             if("institution" %in% include &&
                r$Institution!="") r$Institution
       ),
-      paste0("**",r$Degree,"**: ",r$Program,"; ",r$Focus),
+      paste0(
+        if("degree" %in% include && r$Degree!="") paste0(r$Degree),
+        if("program" %in% include && r$Program!="") paste0(": ",r$Program),
+        if("focus" %in% include && r$Focus!="") paste0("; ",r$Focus)
+      ),
       parse_location(r=r),
       r$EndYear,
       paste(
@@ -158,8 +169,10 @@ parse_education <- function(wd="./",
       ),
       if("thesis" %in% include && 
          r$Thesis!="") paste("**Thesis**:",r$Thesis),
-      parse_bullets(r = r,
-                    concise = concise),
+      if("bullets" %in% include){
+        parse_bullets(r = r,
+                      concise = concise)
+      },
       sep = "\n\n"
     )
   }) |> paste(collapse ="\n\n")
@@ -251,6 +264,7 @@ parse_talks <- function(file=file.path("cv_data","talks.csv"),
 #' @describeIn parse_ parse_
 #' @export
 parse_experience <- function(file=file.path("cv_data","experience.csv"),
+                             select=NULL,
                              types=NULL,
                              concise=FALSE){
   # (Research)
@@ -278,10 +292,13 @@ parse_experience <- function(file=file.path("cv_data","experience.csv"),
   # 2014
   
   
-  Type <- NULL;
+  Type <- Select <- NULL;
   dt <- data.table::fread(file)
   if(!is.null(types)){
     dt <- dt[Type %in% types,]
+  }
+  if(!is.null(select) &&"Select" %in% names(dt)){
+    dt <- dt[Select %in% select,]
   }
   txt <- lapply(seq_len(nrow(dt)), function(i){
     r <- dt[i,]
