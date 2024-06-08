@@ -71,7 +71,7 @@ List various ways of writing a person's name."><!-- mathjax --><script src="http
 <span><span class="fu">parse_education</span><span class="op">(</span></span>
 <span>  wd <span class="op">=</span> <span class="st">"./"</span>,</span>
 <span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>, <span class="st">"cv_data"</span>, <span class="st">"education.csv"</span><span class="op">)</span>,</span>
-<span>  include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"logo"</span>, <span class="st">"supervisors"</span>, <span class="st">"thesis"</span>, <span class="st">"institution"</span><span class="op">)</span>,</span>
+<span>  include <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"logo"</span>, <span class="st">"institution"</span>, <span class="st">"degree"</span>, <span class="st">"program"</span>, <span class="st">"focus"</span>, <span class="st">"thesis"</span>, <span class="st">"bullets"</span><span class="op">)</span>,</span>
 <span>  concise <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
@@ -85,6 +85,7 @@ List various ways of writing a person's name."><!-- mathjax --><script src="http
 <span></span>
 <span><span class="fu">parse_experience</span><span class="op">(</span></span>
 <span>  file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">"cv_data"</span>, <span class="st">"experience.csv"</span><span class="op">)</span>,</span>
+<span>  select <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  types <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  concise <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
@@ -182,6 +183,10 @@ are stored.</p></dd>
 
 <dt>types</dt>
 <dd><p>Subset the `Type` column.</p></dd>
+
+
+<dt>select</dt>
+<dd><p>Subset by "Select" column values.</p></dd>
 
 
 <dt>add_index</dt>
